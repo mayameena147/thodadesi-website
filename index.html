@@ -1,244 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thoda Desi | Gen Z Ethnic Wear</title>
-  <style>
-    :root {
-      --bg: #fff8f2;
-      --surface: #ffffff;
-      --text: #2d1a16;
-      --muted: #6d5650;
-      --accent: #ff5a5f;
-      --accent-dark: #e74f55;
-      --border: #f1ddd5;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thoda Desi — Gen Z Ethnic Wear</title>
+<meta name="description" content="Thoda Desi — quietly modern ethnic wear. Short kurtis and farsi suits made in India." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5efe7;--paper:#fffdfa;--ink:#2a2320;--muted:#8c8075;
+  --clay:#b86b4b;--clay-deep:#9c5539;--sand:#e6d9c8;--line:#e9e0d4;
+  --ok:#5f7a54;--shadow:0 24px 60px rgba(60,40,28,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+.serif{font-family:"Fraunces",Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.08}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{width:min(1140px,90%);margin-inline:auto}
+button{font-family:inherit}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* graceful image tiles */
+.ph{position:relative;overflow:hidden;background:linear-gradient(150deg,var(--g1,#e8dccb),var(--g2,#d8c3ad))}
+.ph .lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;font-family:"Fraunces",serif;font-size:.9rem;color:rgba(60,40,28,.5);z-index:0}
+.ph img{position:relative;z-index:1}
+.ph img.broken{display:none}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+/* promo + countdown */
+.promo{background:var(--ink);color:var(--bg);text-align:center;font-size:.78rem;letter-spacing:.08em;padding:.55rem 0;display:flex;gap:.6rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.promo b{font-variant-numeric:tabular-nums;font-weight:600;background:rgba(255,255,255,.14);padding:.1rem .45rem;border-radius:4px}
 
-    .container {
-      width: min(1080px, 92%);
-      margin: 0 auto;
-    }
+/* nav */
+header{position:sticky;top:0;z-index:40;background:rgba(245,239,231,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;gap:1rem}
+.brand{font-family:"Fraunces";font-size:1.35rem;letter-spacing:.02em}
+.brand b{font-weight:600}
+.links{display:flex;gap:2rem;font-size:.9rem}
+.links a{position:relative;padding-bottom:2px}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--clay);transition:width .3s}
+.links a:hover::after{width:100%}
+.nav-act{display:flex;gap:.6rem;align-items:center}
+.iconbtn{background:none;border:1px solid var(--ink);border-radius:999px;font-size:.85rem;padding:.45rem .95rem;cursor:pointer;transition:.2s;position:relative}
+.iconbtn:hover{background:var(--ink);color:var(--bg)}
+.iconbtn .b{font-variant-numeric:tabular-nums}
+.dotc{position:absolute;top:-6px;right:-6px;background:var(--clay);color:#fff;font-size:.66rem;min-width:17px;height:17px;border-radius:999px;display:none;place-items:center;padding:0 3px}
+.dotc.show{display:grid}
 
-    header {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      background: rgba(255, 248, 242, 0.9);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(8px);
-    }
+/* hero */
+.hero{padding:4.2rem 0 3rem}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:1.3rem}
+.hero h1{font-size:clamp(2.6rem,6vw,4.3rem);margin-bottom:1.3rem;font-weight:500}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:42ch;margin-bottom:1.8rem}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{cursor:pointer;border:none;border-radius:999px;padding:.85rem 1.7rem;font-size:.92rem;transition:transform .2s,background .2s,color .2s;font-family:inherit}
+.btn-solid{background:var(--clay);color:#fff}
+.btn-solid:hover{background:var(--clay-deep)}
+.btn-line{background:none;border:1px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--bg)}
+.social{display:flex;align-items:center;gap:.8rem;margin-top:2rem}
+.avs{display:flex}
+.avs span{width:34px;height:34px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;font-size:.8rem;color:#fff;display:grid;place-items:center;font-family:"Fraunces"}
+.social .txt{font-size:.85rem;color:var(--muted)}
+.social .txt b{color:var(--ink)}
+.stars{color:var(--clay);letter-spacing:1px}
+.hero-media{position:relative;aspect-ratio:4/5;border-radius:6px}
+.hero-media .cap{position:absolute;left:1rem;bottom:1rem;z-index:3;background:rgba(255,253,250,.94);border-radius:4px;padding:.5rem .8rem;font-size:.78rem}
+.hero-media .cap b{font-family:"Fraunces";display:block;font-size:.92rem}
+.hero-media .float{position:absolute;top:1rem;right:1rem;z-index:3;background:var(--ok);color:#fff;font-size:.72rem;padding:.3rem .6rem;border-radius:999px}
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+/* trust */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;padding:1.25rem 0;font-size:.85rem;color:var(--muted)}
+.trust .row span b{color:var(--ink);font-weight:600}
 
-    .brand {
-      font-size: 1.35rem;
-      font-weight: 800;
-      text-transform: lowercase;
-      letter-spacing: 0.5px;
-    }
+/* section */
+.sec{padding:4.8rem 0}
+.sec-head{max-width:52ch;margin-bottom:2.4rem}
+.sec-head .k{font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);margin-bottom:.7rem}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500}
+.sec-head p{color:var(--muted);margin-top:.6rem}
 
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1rem;
-      font-size: 0.95rem;
-    }
+/* categories */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.feat a{position:relative;aspect-ratio:1/1;border-radius:6px;overflow:hidden;display:flex;align-items:flex-end}
+.feat a .ph{position:absolute;inset:0}
+.feat a .ph img{transition:transform .8s ease}
+.feat a:hover .ph img{transform:scale(1.05)}
+.feat a .meta{position:relative;z-index:2;padding:1.6rem;color:#fff;width:100%;background:linear-gradient(transparent,rgba(30,20,14,.6))}
+.feat a .meta h3{font-family:"Fraunces";font-size:1.7rem;font-weight:500}
+.feat a .meta span{font-size:.85rem;opacity:.92}
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-    }
+/* shop toolbar */
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.filters{display:flex;gap:.5rem;flex-wrap:wrap}
+.filters button{font-size:.85rem;background:none;border:1px solid var(--line);color:var(--muted);padding:.45rem 1.1rem;border-radius:999px;cursor:pointer;transition:.2s}
+.filters button:hover{border-color:var(--ink);color:var(--ink)}
+.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sortwrap{display:flex;align-items:center;gap:.6rem;font-size:.85rem;color:var(--muted)}
+.sortwrap select{font-family:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:.45rem 1rem;cursor:pointer;color:var(--ink)}
+.count-lbl{font-size:.82rem;color:var(--muted);margin-bottom:1.2rem}
 
-    .hero {
-      padding: 4.5rem 0 3rem;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
+/* grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem 1.4rem}
+.card{cursor:pointer}
+.card .imgwrap{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;margin-bottom:.85rem}
+.card .imgwrap .ph{position:absolute;inset:0}
+.card .imgwrap .ph img{transition:transform .7s ease}
+.card:hover .imgwrap .ph img{transform:scale(1.05)}
+.card .chip{position:absolute;top:.7rem;left:.7rem;z-index:3;font-size:.7rem;padding:.22rem .55rem;border-radius:4px;background:var(--paper);color:var(--ink)}
+.card .chip.low{background:#fff;color:var(--clay-deep)}
+.card .fav{position:absolute;top:.6rem;right:.6rem;z-index:3;width:33px;height:33px;border-radius:50%;background:rgba(255,253,250,.92);border:none;cursor:pointer;font-size:.9rem;color:var(--ink);transition:.2s}
+.card .fav.on{background:var(--clay);color:#fff}
+.card .quick{position:absolute;left:.6rem;right:.6rem;bottom:.6rem;z-index:3;background:var(--paper);color:var(--ink);border:none;font-size:.82rem;padding:.6rem;border-radius:4px;cursor:pointer;opacity:0;transform:translateY(8px);transition:.25s}
+.card:hover .quick{opacity:1;transform:none}
+.card .rt{font-size:.76rem;color:var(--muted);margin-bottom:.15rem}
+.card .rt .stars{font-size:.72rem}
+.card .nm{font-family:"Fraunces";font-size:1.05rem}
+.card .ty{color:var(--muted);font-size:.82rem;margin:.05rem 0 .35rem}
+.card .pr .now{color:var(--clay-deep);font-weight:600}
+.card .pr .was{color:var(--muted);text-decoration:line-through;margin-left:.4rem;font-size:.82rem}
+.card .pr .off{color:var(--ok);font-size:.78rem;margin-left:.4rem}
 
-    .hero h1 {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
+/* band / story */
+.band{background:var(--sand)}
+.band .in{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4.5rem 0}
+.band .in .txt h2{font-size:clamp(1.8rem,4vw,2.5rem);font-weight:500;margin-bottom:1rem}
+.band .in .txt p{color:#6f6154;margin-bottom:1.3rem}
+.band .media{aspect-ratio:5/4;border-radius:6px}
 
-    .hero p {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      max-width: 52ch;
-    }
+/* values */
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem}
+.vals .v .n{font-family:"Fraunces";color:var(--clay);font-size:.9rem;margin-bottom:.6rem;display:block}
+.vals .v h4{font-family:"Fraunces";font-size:1.2rem;font-weight:500;margin-bottom:.35rem}
+.vals .v p{color:var(--muted);font-size:.92rem}
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      background: var(--accent);
-      color: #fff;
-      padding: 0.8rem 1.4rem;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: background 0.2s ease;
-    }
+/* faq */
+.faq{max-width:760px}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;text-align:left;background:none;border:none;padding:1.15rem 0;font-size:1.02rem;font-family:"Fraunces";cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center;color:var(--ink)}
+.qa button .ic{color:var(--clay);transition:transform .3s;flex:none}
+.qa.open button .ic{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.qa .a p{color:var(--muted);font-size:.92rem;padding:0 0 1.1rem}
 
-    .btn:hover {
-      background: var(--accent-dark);
-    }
+/* newsletter */
+.sub{text-align:center;max-width:520px;margin:0 auto}
+.sub h2{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:500;margin-bottom:.5rem}
+.sub p{color:var(--muted);margin-bottom:1.4rem}
+.sub form{display:flex;gap:.4rem;border:1px solid var(--ink);border-radius:999px;padding:.3rem;background:var(--paper)}
+.sub input{flex:1;border:none;background:none;font-family:inherit;padding:.6rem 1rem;outline:none;color:var(--ink)}
+.sub .msg{margin-top:.8rem;color:var(--ok);font-size:.9rem;min-height:1.1em}
 
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 10px 30px rgba(60, 28, 19, 0.08);
-    }
+/* footer */
+footer{border-top:1px solid var(--line);padding:3.4rem 0 5rem}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem}
+.foot .b{font-family:"Fraunces";font-size:1.4rem;margin-bottom:.5rem}
+.foot p{color:var(--muted);font-size:.9rem;max-width:32ch}
+.foot h5{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+.foot a{display:block;font-size:.9rem;padding:.22rem 0}
+.foot a:hover{color:var(--clay)}
+.copy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;margin-top:2.4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
 
-    .hero-card h2 {
-      margin-bottom: 0.6rem;
-      font-size: 1.15rem;
-    }
+/* overlay + drawers/modal */
+.ov{position:fixed;inset:0;background:rgba(30,20,14,.4);z-index:98;opacity:0;visibility:hidden;transition:.3s}
+.ov.open{opacity:1;visibility:visible}
+.draw{position:fixed;top:0;right:0;height:100%;width:min(400px,92%);background:var(--bg);z-index:99;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column}
+.draw.open{transform:none}
+.draw .h{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.3rem;border-bottom:1px solid var(--line)}
+.draw .h h3{font-family:"Fraunces";font-weight:500;font-size:1.2rem}
+.draw .h button,.modal .x{background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;color:var(--ink)}
+/* free shipping bar */
+.ship{padding:.9rem 1.3rem;border-bottom:1px solid var(--line);font-size:.82rem}
+.ship .bar{height:6px;border-radius:999px;background:var(--line);margin-top:.5rem;overflow:hidden}
+.ship .bar i{display:block;height:100%;width:0;background:var(--ok);transition:width .5s ease}
+.ship.done{color:var(--ok)}
+.items{flex:1;overflow:auto;padding:.6rem 1.3rem}
+.ci{display:flex;gap:.9rem;padding:.9rem 0;border-bottom:1px solid var(--line)}
+.ci .ph{width:56px;height:70px;border-radius:4px;flex:none}
+.ci .info{font-size:.85rem;flex:1}
+.ci .info b{font-family:"Fraunces";font-weight:500;display:block}
+.ci .info .sz{color:var(--muted);font-size:.78rem}
+.ci .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-top:.4rem}
+.ci .qty button{width:24px;height:24px;border:none;background:none;cursor:pointer;font-size:.95rem;color:var(--ink)}
+.ci .qty span{min-width:22px;text-align:center;font-size:.82rem}
+.ci .line{text-align:right;font-size:.85rem}
+.ci .rm{background:none;border:none;color:var(--muted);font-size:.74rem;cursor:pointer;text-decoration:underline;padding:0;display:block;margin-top:.4rem}
+.empty{color:var(--muted);text-align:center;padding:2.5rem 1rem;font-size:.9rem}
+.draw .f{padding:1.1rem 1.3rem;border-top:1px solid var(--line)}
+.coupon{display:flex;gap:.4rem;margin-bottom:.8rem}
+.coupon input{flex:1;border:1px solid var(--line);border-radius:999px;padding:.5rem .9rem;font-family:inherit;font-size:.82rem;outline:none;background:var(--paper);color:var(--ink)}
+.coupon button{border:1px solid var(--ink);background:none;border-radius:999px;padding:.5rem .9rem;font-size:.82rem;cursor:pointer}
+.sums{font-size:.86rem;margin-bottom:.4rem}
+.sums div{display:flex;justify-content:space-between;padding:.15rem 0}
+.sums .disc{color:var(--ok)}
+.sums .tot{font-family:"Fraunces";font-size:1.15rem;border-top:1px solid var(--line);margin-top:.3rem;padding-top:.5rem}
+.eta{font-size:.8rem;color:var(--muted);margin:.5rem 0 .8rem;display:flex;gap:.4rem;align-items:center}
+.eta b{color:var(--ink)}
+.draw .f .btn{width:100%}
 
-    .section {
-      padding: 1.5rem 0 3rem;
-    }
+/* quick view modal */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:1.2rem}
+.modal.open{display:flex}
+.modal .box{background:var(--bg);border-radius:10px;max-width:820px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;position:relative}
+.modal .x{position:absolute;top:.6rem;right:.8rem;z-index:5}
+.modal .mimg{aspect-ratio:4/5}
+.modal .minfo{padding:1.8rem}
+.modal .minfo .rt{font-size:.8rem;color:var(--muted);margin-bottom:.5rem}
+.modal .minfo h3{font-family:"Fraunces";font-size:1.6rem;font-weight:500}
+.modal .minfo .ty{color:var(--muted);font-size:.88rem;margin-bottom:.7rem}
+.modal .minfo .price{font-size:1.15rem;margin-bottom:.9rem}
+.modal .minfo .price .now{color:var(--clay-deep);font-weight:600}
+.modal .minfo .price .was{color:var(--muted);text-decoration:line-through;margin-left:.5rem;font-size:.9rem}
+.modal .minfo .desc{color:var(--muted);font-size:.9rem;margin-bottom:1.1rem}
+.modal .lbl2{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:.5rem}
+.modal .lbl2 a{color:var(--clay);cursor:pointer;text-decoration:underline}
+.sizes{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.sizes button{min-width:44px;padding:.5rem;border:1px solid var(--line);background:var(--paper);border-radius:6px;cursor:pointer;font-size:.85rem;position:relative;color:var(--ink)}
+.sizes button.sel{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.sizes button.oos{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.mstock{font-size:.8rem;color:var(--clay-deep);margin-bottom:.9rem;min-height:1em}
+.mrow{display:flex;gap:.7rem;align-items:center}
+.mrow .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+.mrow .qty button{width:34px;height:40px;border:none;background:none;cursor:pointer;font-size:1.1rem;color:var(--ink)}
+.mrow .qty span{min-width:26px;text-align:center}
+.mrow .btn{flex:1}
+.mfeat{display:flex;gap:1.2rem;margin-top:1.1rem;font-size:.78rem;color:var(--muted);flex-wrap:wrap}
 
-    .section h2 {
-      margin-bottom: 1rem;
-      font-size: 1.7rem;
-    }
+/* fly to cart dot */
+.fly{position:fixed;z-index:200;width:22px;height:22px;border-radius:50%;pointer-events:none;transition:transform .8s cubic-bezier(.5,-.4,.4,1.2),opacity .8s}
 
-    .section p.lead {
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
+/* back to top + mobile bar */
+.top{position:fixed;right:18px;bottom:18px;z-index:60;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--bg);border:none;cursor:pointer;font-size:1.1rem;opacity:0;transform:translateY(14px);transition:.3s}
+.top.show{opacity:1;transform:none}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:none;background:var(--paper);border-top:1px solid var(--line);padding:.6rem .9rem;gap:.6rem}
+.mbar .btn{flex:1;text-align:center;padding:.75rem}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
+/* reveal + toast */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(140px);background:var(--ink);color:var(--bg);padding:.75rem 1.3rem;border-radius:999px;font-size:.86rem;z-index:130;transition:transform .35s}
+.toast.show{transform:translateX(-50%) translateY(0)}
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.1rem;
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .about {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 2rem 0 2.5rem;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        gap: 0.75rem;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){
+  .links{display:none}
+  .hero-grid,.feat,.band .in,.vals{grid-template-columns:1fr}
+  .hero-grid{gap:2rem}.band .in{gap:2rem}
+  .modal .box{grid-template-columns:1fr}.modal .mimg{aspect-ratio:16/10}
+  .mbar{display:flex}
+  footer{padding-bottom:5.5rem}
+  .top{bottom:76px}
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <p class="brand">thoda desi</p>
-      <ul class="nav-links">
-        <li><a href="#collection">Collection</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#visit">Visit</a></li>
-      </ul>
+
+<div class="promo">Drop ends in <b id="cd">--:--:--</b> · Extra 10% off with <b>THODA10</b></div>
+
+<header><div class="wrap nav">
+  <div class="brand">thoda&nbsp;<b>desi</b></div>
+  <nav class="links">
+    <a href="#kurti">Short Kurti</a><a href="#farsi">Farsi Suits</a>
+    <a href="#shop">Shop</a><a href="#faq">Help</a>
+  </nav>
+  <div class="nav-act">
+    <button class="iconbtn" id="openWish">♡<span class="dotc" id="wishCount">0</span></button>
+    <button class="iconbtn" id="openCart">Bag&nbsp;(<span class="b" id="count">0</span>)</button>
+  </div>
+</div></header>
+
+<!-- hero -->
+<section class="hero"><div class="wrap hero-grid">
+  <div class="rv">
+    <div class="eyebrow">Gen Z ethnic wear · est. 2026</div>
+    <h1 class="serif">Quietly desi.<br>Effortlessly <em>you.</em></h1>
+    <p>Short kurtis and farsi suits in soft, breathable fabrics — made for slow mornings, long lectures and the occasional celebration.</p>
+    <div class="hero-cta">
+      <button class="btn btn-solid" onclick="go('shop')">Shop the edit</button>
+      <button class="btn btn-line" onclick="go('story')">Our story</button>
     </div>
-  </header>
-
-  <main class="container">
-    <section class="hero" id="visit">
-      <div>
-        <h1>Gen Z ethnic fits with a modern vibe.</h1>
-        <p>
-          Thoda Desi brings everyday-ready desi fashion with trend-first silhouettes,
-          comfortable fabrics, and statement details.
-        </p>
-        <a class="btn" href="#collection">Shop Thoda Desi</a>
+    <div class="social">
+      <div class="avs">
+        <span style="background:#b86b4b">A</span><span style="background:#5f7a54">S</span><span style="background:#9c5539">R</span><span style="background:#8c8075">M</span>
       </div>
-      <article class="hero-card">
-        <h2>Featured This Week</h2>
-        <p>Short kurti drops and farsi sets designed for easy styling from college to celebrations.</p>
-      </article>
-    </section>
+      <div class="txt"><span class="stars">★★★★★</span> <b>4.9</b> · loved by <b>28,000+</b> desi girls</div>
+    </div>
+  </div>
+  <div class="rv">
+    <div class="hero-media ph" style="--g1:#eaddc9;--g2:#cbae90">
+      <span class="lbl">Thoda Desi · Short Kurti</span>
+      <img loading="lazy" alt="Model in a short kurti" onerror="this.classList.add('broken')" src="https://images.unsplash.com/photo-1745313452052-0e4e341f326c?w=760&q=80&auto=format&fit=crop">
+      <span class="float">● New drop live</span>
+      <div class="cap"><b>The Bloom Kurti</b>everyday cotton · ₹899</div>
+    </div>
+  </div>
+</div></section>
 
-    <section class="section" id="collection">
-      <h2>What We Sell</h2>
-      <p class="lead">A curated set of ethnic staples and statement pieces.</p>
-      <div class="products">
-        <article class="card">
-          <h3>Short Kurti</h3>
-          <p>Trendy short kurtis made for comfort, layering, and everyday styling.</p>
-        </article>
-        <article class="card">
-          <h3>Farsi Salwar Suit</h3>
-          <p>Elegant farsi silhouettes that blend classic craft with fresh Gen Z energy.</p>
-        </article>
-        <article class="card">
-          <h3>Festive Coord Sets</h3>
-          <p>Ready-to-wear festive sets for family events, parties, and wedding season looks.</p>
-        </article>
+<div class="trust"><div class="wrap row">
+  <span><b>100%</b> breathable fabrics</span><span><b>XS–3XL</b> inclusive sizing</span>
+  <span><b>7-day</b> easy returns</span><span><b>COD</b> across India</span>
+</div></div>
+
+<!-- categories -->
+<section class="sec"><div class="wrap">
+  <div class="sec-head rv"><div class="k">Shop by category</div><h2 class="serif">Two ways to wear desi.</h2></div>
+  <div class="feat rv">
+    <a href="#shop" id="kurti" data-cat="kurti">
+      <div class="ph" style="--g1:#efd9c4;--g2:#d8a982"><span class="lbl">Short Kurti</span>
+        <img loading="lazy" alt="Short kurti" onerror="this.classList.add('broken')" src="https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=720&q=80&auto=format&fit=crop"></div>
+      <div class="meta"><h3>Short Kurti</h3><span>Cropped, breezy, pocket-loaded →</span></div>
+    </a>
+    <a href="#shop" id="farsi" data-cat="farsi">
+      <div class="ph" style="--g1:#dfe4d0;--g2:#a9b98d"><span class="lbl">Farsi Suit</span>
+        <img loading="lazy" alt="Farsi suit" onerror="this.classList.add('broken')" src="https://images.unsplash.com/photo-1610048869310-d889ff25c374?w=720&q=80&auto=format&fit=crop"></div>
+      <div class="meta"><h3>Farsi Suits</h3><span>Soft drapes, festive-ready →</span></div>
+    </a>
+  </div>
+</div></section>
+
+<!-- shop -->
+<section class="sec" id="shop" style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div class="k">The edit</div><h2 class="serif">Pieces that mix &amp; repeat.</h2></div>
+  <div class="toolbar rv">
+    <div class="filters" id="filters">
+      <button class="on" data-f="all">All</button><button data-f="kurti">Short Kurti</button>
+      <button data-f="farsi">Farsi Suit</button><button data-f="coord">Coord Sets</button>
+    </div>
+    <div class="sortwrap">Sort
+      <select id="sort">
+        <option value="pop">Most loved</option>
+        <option value="low">Price: low → high</option>
+        <option value="high">Price: high → low</option>
+        <option value="off">Biggest discount</option>
+      </select>
+    </div>
+  </div>
+  <div class="count-lbl rv" id="countLbl"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<!-- story -->
+<section class="band" id="story"><div class="wrap in">
+  <div class="txt rv">
+    <div class="sec-head" style="margin:0"><div class="k">Our story</div><h2 class="serif">Rooted in desi, styled for now.</h2></div>
+    <p>Thoda Desi began with a simple frustration — ethnic wear that felt either too heavy or too try-hard. So we made the in-between: everyday pieces with just enough desi, in fabrics that actually breathe, at prices a student can say yes to.</p>
+    <button class="btn btn-line" onclick="go('shop')">Explore the collection</button>
+  </div>
+  <div class="media ph rv" style="--g1:#e7d3bd;--g2:#c39a76"><span class="lbl">Made in India</span>
+    <img loading="lazy" alt="Editorial" onerror="this.classList.add('broken')" src="https://images.unsplash.com/photo-1762777777819-4d9aa5529368?w=760&q=80&auto=format&fit=crop"></div>
+</div></section>
+
+<!-- values -->
+<section class="sec"><div class="wrap">
+  <div class="vals rv">
+    <div class="v"><span class="n">01</span><h4>Breathe-easy fabrics</h4><p>Handpicked cottons and soft rayons that hold up through Indian summers and back-to-back days.</p></div>
+    <div class="v"><span class="n">02</span><h4>Student-friendly prices</h4><p>Considered pieces, most under ₹1,499 — because looking good shouldn't cost a semester.</p></div>
+    <div class="v"><span class="n">03</span><h4>Made in India</h4><p>Cut and sewn locally in small runs, with fair work and far less waste.</p></div>
+  </div>
+</div></section>
+
+<!-- faq -->
+<section class="sec band" id="faq"><div class="wrap">
+  <div class="sec-head rv"><div class="k">Help centre</div><h2 class="serif">Good to know before you buy.</h2></div>
+  <div class="faq rv" id="faqList"></div>
+</div></section>
+
+<!-- newsletter -->
+<section class="sec"><div class="wrap">
+  <div class="sub rv">
+    <h2 class="serif">Get 10% off your first order.</h2>
+    <p>Early drops and quiet sales, straight to your inbox.</p>
+    <form id="subForm"><input type="email" required placeholder="your@email.com" aria-label="email"><button class="btn btn-solid" type="submit">Subscribe</button></form>
+    <div class="msg" id="subMsg"></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="b">thoda desi</div><p>Quietly modern ethnic wear, made in India for the everyday desi girl.</p></div>
+    <div><h5>Shop</h5><a href="#kurti">Short Kurti</a><a href="#farsi">Farsi Suits</a><a href="#shop">Coord Sets</a><a href="#shop">New In</a></div>
+    <div><h5>Help</h5><a href="#faq">Size Guide</a><a href="#faq">Shipping</a><a href="#faq">Returns</a><a href="#faq">Track Order</a></div>
+    <div><h5>Follow</h5><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">YouTube</a><a href="#story">Our Story</a></div>
+  </div>
+  <div class="copy"><span>© 2026 Thoda Desi. Made with care in India.</span><span>Photos: Unsplash placeholders — swap for your product shots.</span></div>
+</div></footer>
+
+<!-- overlay/drawers -->
+<div class="ov" id="ov"></div>
+
+<aside class="draw" id="draw" aria-label="Shopping bag">
+  <div class="h"><h3>Your Bag</h3><button id="closeCart" aria-label="close">×</button></div>
+  <div class="ship" id="ship"><span id="shipTxt"></span><div class="bar"><i id="shipBar"></i></div></div>
+  <div class="items" id="cartItems"><p class="empty">Your bag is empty.</p></div>
+  <div class="f">
+    <div class="coupon"><input id="coupon" placeholder="Coupon code (try THODA10)"><button id="applyCoupon">Apply</button></div>
+    <div class="sums" id="sums"></div>
+    <div class="eta">🚚 <span>Order now, <b id="eta"></b></span></div>
+    <button class="btn btn-solid" onclick="toast('This is a demo checkout ✦')">Checkout</button>
+  </div>
+</aside>
+
+<aside class="draw" id="wishDraw" aria-label="Wishlist">
+  <div class="h"><h3>Saved for later</h3><button id="closeWish" aria-label="close">×</button></div>
+  <div class="items" id="wishItems"><p class="empty">No saved pieces yet — tap ♡ on anything you love.</p></div>
+</aside>
+
+<!-- quick view -->
+<div class="modal" id="modal" aria-label="Product quick view">
+  <div class="box">
+    <button class="x" id="closeModal" aria-label="close">×</button>
+    <div class="mimg ph" id="mImg"></div>
+    <div class="minfo">
+      <div class="rt" id="mRt"></div>
+      <h3 class="serif" id="mName"></h3>
+      <div class="ty" id="mTy"></div>
+      <div class="price" id="mPrice"></div>
+      <div class="desc" id="mDesc"></div>
+      <div class="lbl2"><span>Select size</span><a id="sizeGuideLink">Size guide</a></div>
+      <div class="sizes" id="mSizes"></div>
+      <div class="mstock" id="mStock"></div>
+      <div class="mrow">
+        <div class="qty"><button id="mMinus">−</button><span id="mQty">1</span><button id="mPlus">+</button></div>
+        <button class="btn btn-solid" id="mAdd">Add to bag</button>
       </div>
-    </section>
+      <div class="mfeat"><span>↺ 7-day returns</span><span>🚚 Free over ₹999</span><span>✓ COD available</span></div>
+    </div>
+  </div>
+</div>
 
-    <section class="section" id="about">
-      <h2>Why Thoda Desi</h2>
-      <div class="about">
-        We focus on contemporary ethnic wear for young shoppers who want easy styling,
-        quality fabrics, and desi identity in every look.
-      </div>
-    </section>
-  </main>
+<!-- size guide -->
+<div class="modal" id="sizeModal" aria-label="Size guide">
+  <div class="box" style="grid-template-columns:1fr;max-width:520px">
+    <button class="x" id="closeSize" aria-label="close">×</button>
+    <div class="minfo">
+      <h3 class="serif">Size guide</h3>
+      <div class="ty">Measurements in inches · relaxed fit</div>
+      <table style="width:100%;border-collapse:collapse;margin-top:1rem;font-size:.88rem">
+        <thead><tr style="text-align:left;color:var(--muted)"><th style="padding:.5rem 0">Size</th><th>Bust</th><th>Waist</th><th>Length</th></tr></thead>
+        <tbody id="sizeRows"></tbody>
+      </table>
+      <p style="color:var(--muted);font-size:.82rem;margin-top:1rem">Between sizes? Size up for a breezier fit.</p>
+    </div>
+  </div>
+</div>
 
-  <footer>
-    <p>&copy; 2026 Thoda Desi. Ethnic clothing brand.</p>
-  </footer>
+<button class="top" id="toTop" aria-label="Back to top">↑</button>
+<div class="mbar"><button class="btn btn-line" onclick="go('shop')">Shop</button><button class="btn btn-solid" id="mbarBag">View bag (<span id="count2">0</span>)</button></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- data ---------- */
+const products=[
+ {id:1,name:"Bloom Kurti",type:"Cotton short kurti",cat:"kurti",now:899,was:1299,img:"1741847639057-b51a25d42892",g:["#efd9c4","#d8a982"],rating:4.8,reviews:214,pop:96,stock:{XS:1,S:1,M:1,L:1,XL:0},low:"L",desc:"A breezy cropped kurti in soft breathable cotton — deep side pockets, easy over jeans or palazzos."},
+ {id:2,name:"Marigold Kurti",type:"Embroidered short kurti",cat:"kurti",now:1099,was:1599,img:"1760287363878-1a09af715b80",g:["#f0e2c6","#dcc07f"],rating:4.9,reviews:167,pop:94,stock:{XS:1,S:1,M:1,L:1,XL:1},low:"XS",desc:"Hand-embroidered neckline on a relaxed silhouette — festive enough for a puja, easy enough for class."},
+ {id:3,name:"Chai Date Kurti",type:"Printed short kurti",cat:"kurti",now:799,was:1199,img:"1762777777819-4d9aa5529368",g:["#ecd7cd","#cf9f8e"],rating:4.7,reviews:302,pop:98,stock:{XS:1,S:1,M:0,L:1,XL:1},low:null,desc:"Our bestselling everyday print — the fit that gets asked about on every chai run."},
+ {id:4,name:"Rani Farsi Suit",type:"Farsi salwar suit",cat:"farsi",now:1799,was:2499,img:"1759840278862-ef629e9b0f64",g:["#e6d3cb","#c99a8b"],rating:4.9,reviews:88,pop:90,stock:{XS:1,S:1,M:1,L:1,XL:1},low:"S",desc:"A flowing farsi suit with soft drape and dupatta — the grandma-approved, feed-approved set."},
+ {id:5,name:"Meadow Farsi Suit",type:"Floral farsi suit",cat:"farsi",now:1699,was:2299,img:"1610048869310-d889ff25c374",g:["#dfe4d0","#a9b98d"],rating:4.8,reviews:73,pop:88,stock:{XS:1,S:1,M:1,L:0,XL:1},low:null,desc:"Delicate floral farsi suit in a fresh meadow palette — light, airy and easy to move in."},
+ {id:6,name:"Gulmohar Farsi Set",type:"Farsi suit + dupatta",cat:"farsi",now:1999,was:2799,img:"1780504863283-3157e6d141e1",g:["#f0dcd0","#d3a48f"],rating:5.0,reviews:41,pop:85,stock:{XS:0,S:1,M:1,L:1,XL:0},low:"M",desc:"Our most-loved festive set — rich gulmohar tones with a dupatta that actually stays put."},
+ {id:7,name:"Sand Coord Set",type:"Kurti + pant coord",cat:"coord",now:1499,was:1999,img:"1571587289339-cb7da03fb5a6",g:["#e7ddce","#c3b199"],rating:4.6,reviews:129,pop:82,stock:{XS:1,S:1,M:1,L:1,XL:1},low:null,desc:"An easy tonal coord in warm sand — throw it on and look put-together in one step."},
+ {id:8,name:"Ivory Coord",type:"Short kurti coord",cat:"coord",now:1599,was:2199,img:"1745313452052-0e4e341f326c",g:["#eaddc9","#cbae90"],rating:4.8,reviews:96,pop:84,stock:{XS:1,S:0,M:1,L:1,XL:1},low:"M",desc:"A crisp ivory coord set that plays well with everything — the quiet hero of the wardrobe."}
+];
+const SIZES=["XS","S","M","L","XL"];
+const FREE=999;
+const rupee=n=>"₹"+n.toLocaleString('en-IN');
+const off=p=>Math.round((1-p.now/p.was)*100);
+const imgURL=(id,w)=>`https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+const phTile=(p,lbl,extra='')=>`<div class="ph" style="--g1:${p.g[0]};--g2:${p.g[1]}${extra}"><span class="lbl">${lbl||p.name}</span><img loading="lazy" alt="${p.name}" onerror="this.classList.add('broken')" src="${imgURL(p.img,520)}"></div>`;
+
+/* ---------- render grid ---------- */
+const grid=document.getElementById('grid');
+const wish=new Set();
+let curFilter='all';
+function sortList(list){
+  const s=document.getElementById('sort').value;
+  const a=[...list];
+  if(s==='low')a.sort((x,y)=>x.now-y.now);
+  else if(s==='high')a.sort((x,y)=>y.now-x.now);
+  else if(s==='off')a.sort((x,y)=>off(y)-off(x));
+  else a.sort((x,y)=>y.pop-x.pop);
+  return a;
+}
+function card(p){
+  const soldout=Object.values(p.stock).every(v=>!v);
+  const chip=soldout?`<span class="chip low">Sold out</span>`:(p.low?`<span class="chip low">Only a few left</span>`:(off(p)>=35?`<span class="chip">${off(p)}% off</span>`:''));
+  return `<article class="card" data-id="${p.id}">
+    <div class="imgwrap">${chip}
+      <button class="fav ${wish.has(p.id)?'on':''}" data-fav="${p.id}" aria-label="save">♡</button>
+      ${phTile(p)}
+      <button class="quick" data-quick="${p.id}">Quick view</button>
+    </div>
+    <div class="rt"><span class="stars">★</span> ${p.rating} · ${p.reviews} reviews</div>
+    <div class="nm">${p.name}</div><div class="ty">${p.type}</div>
+    <div class="pr"><span class="now">${rupee(p.now)}</span><span class="was">${rupee(p.was)}</span><span class="off">${off(p)}% off</span></div>
+  </article>`;
+}
+function render(){
+  const list=sortList(products.filter(p=>curFilter==='all'||p.cat===curFilter));
+  grid.innerHTML=list.map(card).join('');
+  document.getElementById('countLbl').textContent=`Showing ${list.length} piece${list.length>1?'s':''}`;
+  grid.querySelectorAll('.card').forEach((c,i)=>{c.classList.add('rv');c.style.transitionDelay=(i%3*50)+'ms';io.observe(c)});
+}
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');curFilter=b.dataset.f;render();
+});
+document.getElementById('sort').addEventListener('change',render);
+document.querySelectorAll('.feat a').forEach(a=>a.addEventListener('click',()=>{
+  curFilter=a.dataset.cat;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x.dataset.f===curFilter));
+  render();
+}));
+
+/* ---------- quick view modal ---------- */
+const modal=document.getElementById('modal');
+let mProd=null,mSize=null,mQ=1;
+function openModal(id){
+  mProd=products.find(p=>p.id===id);mSize=null;mQ=1;
+  document.getElementById('mImg').innerHTML=`<span class="lbl">${mProd.name}</span><img alt="${mProd.name}" onerror="this.classList.add('broken')" src="${imgURL(mProd.img,700)}">`;
+  document.getElementById('mImg').style.setProperty('--g1',mProd.g[0]);
+  document.getElementById('mImg').style.setProperty('--g2',mProd.g[1]);
+  document.getElementById('mRt').innerHTML=`<span class="stars">★★★★★</span> ${mProd.rating} · ${mProd.reviews} reviews`;
+  document.getElementById('mName').textContent=mProd.name;
+  document.getElementById('mTy').textContent=mProd.type;
+  document.getElementById('mPrice').innerHTML=`<span class="now">${rupee(mProd.now)}</span><span class="was">${rupee(mProd.was)}</span> · <span style="color:var(--ok)">${off(mProd)}% off</span>`;
+  document.getElementById('mDesc').textContent=mProd.desc;
+  document.getElementById('mSizes').innerHTML=SIZES.map(s=>{
+    const oos=!mProd.stock[s];return `<button data-size="${s}" class="${oos?'oos':''}" ${oos?'disabled':''}>${s}</button>`;
+  }).join('');
+  document.getElementById('mStock').textContent=mProd.low?`Hurry — only a few left in ${mProd.low}`:'';
+  document.getElementById('mQty').textContent='1';
+  openOverlay();modal.classList.add('open');
+}
+document.getElementById('mSizes')?.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-size]');if(!b||b.disabled)return;
+  document.querySelectorAll('#mSizes button').forEach(x=>x.classList.remove('sel'));
+  b.classList.add('sel');mSize=b.dataset.size;
+});
+document.getElementById('mMinus').onclick=()=>{mQ=Math.max(1,mQ-1);document.getElementById('mQty').textContent=mQ};
+document.getElementById('mPlus').onclick=()=>{mQ++;document.getElementById('mQty').textContent=mQ};
+document.getElementById('mAdd').onclick=e=>{
+  if(!mSize){toast('Please pick a size first');document.getElementById('mStock').textContent='↑ Select a size to continue';return;}
+  addToCart(mProd.id,mSize,mQ,e.currentTarget);closeModal();
+};
+function closeModal(){modal.classList.remove('open');maybeCloseOverlay();}
+document.getElementById('closeModal').onclick=closeModal;
+
+/* size guide */
+const sizeModal=document.getElementById('sizeModal');
+document.getElementById('sizeRows').innerHTML=[["XS",32,26,34],["S",34,28,34.5],["M",36,30,35],["L",38,32,35.5],["XL",40,34,36]].map(r=>`<tr style="border-top:1px solid var(--line)"><td style="padding:.5rem 0"><b>${r[0]}</b></td><td>${r[1]}"</td><td>${r[2]}"</td><td>${r[3]}"</td></tr>`).join('');
+document.getElementById('sizeGuideLink').onclick=()=>{sizeModal.classList.add('open');openOverlay();};
+document.getElementById('closeSize').onclick=()=>{sizeModal.classList.remove('open');maybeCloseOverlay();};
+
+/* ---------- cart ---------- */
+const cart=[];let discount=0;
+const $count=document.getElementById('count'),$count2=document.getElementById('count2');
+function addToCart(id,size,qty,srcEl){
+  const p=products.find(x=>x.id===id);
+  const ex=cart.find(c=>c.id===id&&c.size===size);
+  if(ex)ex.q+=qty;else cart.push({...p,size,q:qty});
+  upd();fly(srcEl);toast(`${p.name} (${size}) added`);
+  setTimeout(openCart,650);
+}
+function upd(){
+  const n=cart.reduce((a,c)=>a+c.q,0);
+  $count.textContent=n;$count2.textContent=n;
+  document.getElementById('cartItems').innerHTML=cart.length?cart.map((c,i)=>`<div class="ci">
+    ${phTile(c,c.name).replace('class="ph"','class="ph" data-mini')}
+    <div class="info"><b>${c.name}</b><span class="sz">Size ${c.size}</span>
+      <div class="qty"><button data-dec="${i}">−</button><span>${c.q}</span><button data-inc="${i}">+</button></div>
+    </div>
+    <div class="line">${rupee(c.now*c.q)}<button class="rm" data-rm="${i}">remove</button></div>
+  </div>`).join(''):'<p class="empty">Your bag is empty.</p>';
+  // free shipping bar
+  const sub=cart.reduce((a,c)=>a+c.now*c.q,0);
+  const ship=document.getElementById('ship'),bar=document.getElementById('shipBar'),txt=document.getElementById('shipTxt');
+  if(sub===0){txt.textContent='Free shipping over ₹999';bar.style.width='0%';ship.classList.remove('done');}
+  else if(sub<FREE){txt.innerHTML=`You're <b>${rupee(FREE-sub)}</b> away from free shipping`;bar.style.width=(sub/FREE*100)+'%';ship.classList.remove('done');}
+  else{txt.textContent='✓ You’ve unlocked free shipping';bar.style.width='100%';ship.classList.add('done');}
+  // sums
+  const disc=Math.round(sub*discount);
+  const shipFee=sub>0&&sub<FREE?49:0;
+  const tot=sub-disc+shipFee;
+  document.getElementById('sums').innerHTML=sub?`
+    <div><span>Subtotal</span><span>${rupee(sub)}</span></div>
+    ${disc?`<div class="disc"><span>Discount (THODA10)</span><span>−${rupee(disc)}</span></div>`:''}
+    <div><span>Shipping</span><span>${shipFee?rupee(shipFee):'Free'}</span></div>
+    <div class="tot"><span>Total</span><span>${rupee(tot)}</span></div>`:'';
+  const w=[...wish];
+  document.getElementById('wishCount').textContent=w.length;
+  document.getElementById('wishCount').classList.toggle('show',w.length>0);
+}
+document.getElementById('cartItems').addEventListener('click',e=>{
+  const inc=e.target.closest('[data-inc]'),dec=e.target.closest('[data-dec]'),rm=e.target.closest('[data-rm]');
+  if(inc){cart[+inc.dataset.inc].q++;upd();}
+  else if(dec){const c=cart[+dec.dataset.dec];c.q--;if(c.q<1)cart.splice(+dec.dataset.dec,1);upd();}
+  else if(rm){cart.splice(+rm.dataset.rm,1);upd();}
+});
+document.getElementById('applyCoupon').onclick=()=>{
+  const v=document.getElementById('coupon').value.trim().toUpperCase();
+  if(v==='THODA10'){discount=.10;toast('Coupon applied — 10% off');}
+  else{discount=0;toast('That code isn’t valid');}
+  upd();
+};
+
+/* wishlist */
+document.addEventListener('click',e=>{
+  const q=e.target.closest('[data-quick]');if(q){openModal(+q.dataset.quick);return;}
+  const f=e.target.closest('[data-fav]');if(f){const id=+f.dataset.fav;wish.has(id)?wish.delete(id):wish.add(id);f.classList.toggle('on');renderWish();upd();toast(wish.has(id)?'Saved to wishlist ♡':'Removed');return;}
+  const card=e.target.closest('.card');if(card&&!e.target.closest('button')){openModal(+card.dataset.id);}
+});
+function renderWish(){
+  const w=[...wish].map(id=>products.find(p=>p.id===id));
+  document.getElementById('wishItems').innerHTML=w.length?w.map(p=>`<div class="ci">
+    ${phTile(p,p.name)}
+    <div class="info"><b>${p.name}</b><span class="sz">${rupee(p.now)}</span><br>
+    <button class="rm" data-movecart="${p.id}" style="color:var(--clay)">Move to bag →</button></div>
+  </div>`).join(''):'<p class="empty">No saved pieces yet — tap ♡ on anything you love.</p>';
+}
+document.getElementById('wishItems').addEventListener('click',e=>{
+  const m=e.target.closest('[data-movecart]');if(m){openModal(+m.dataset.movecart);closeWish();}
+});
+
+/* ---------- overlay control ---------- */
+const ov=document.getElementById('ov'),draw=document.getElementById('draw'),wishDraw=document.getElementById('wishDraw');
+function openOverlay(){ov.classList.add('open');document.body.classList.add('lock');}
+function maybeCloseOverlay(){
+  if(!draw.classList.contains('open')&&!wishDraw.classList.contains('open')&&!modal.classList.contains('open')&&!sizeModal.classList.contains('open')){
+    ov.classList.remove('open');document.body.classList.remove('lock');
+  }
+}
+function openCart(){wishDraw.classList.remove('open');draw.classList.add('open');openOverlay();}
+function closeCart(){draw.classList.remove('open');maybeCloseOverlay();}
+function openWish(){renderWish();draw.classList.remove('open');wishDraw.classList.add('open');openOverlay();}
+function closeWish(){wishDraw.classList.remove('open');maybeCloseOverlay();}
+document.getElementById('openCart').onclick=openCart;
+document.getElementById('closeCart').onclick=closeCart;
+document.getElementById('mbarBag').onclick=openCart;
+document.getElementById('openWish').onclick=openWish;
+document.getElementById('closeWish').onclick=closeWish;
+ov.onclick=()=>{closeCart();closeWish();closeModal();sizeModal.classList.remove('open');maybeCloseOverlay();};
+addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeWish();closeModal();sizeModal.classList.remove('open');maybeCloseOverlay();}});
+
+/* ---------- fly to cart ---------- */
+function fly(srcEl){
+  try{
+    const target=document.getElementById('openCart').getBoundingClientRect();
+    const r=(srcEl||document.getElementById('mAdd')).getBoundingClientRect();
+    const d=document.createElement('div');d.className='fly';
+    d.style.background=(mProd?mProd.g[1]:'#b86b4b');
+    d.style.left=r.left+r.width/2+'px';d.style.top=r.top+'px';
+    document.body.appendChild(d);
+    requestAnimationFrame(()=>{d.style.transform=`translate(${target.left-r.left}px,${target.top-r.top}px) scale(.3)`;d.style.opacity='0';});
+    setTimeout(()=>d.remove(),820);
+  }catch(_){}
+}
+
+/* ---------- misc ---------- */
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+let tT;const $toast=document.getElementById('toast');
+function toast(m){$toast.textContent=m;$toast.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>$toast.classList.remove('show'),1900);}
+document.getElementById('subForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('subMsg').textContent="You're in — code THODA10 is yours.";e.target.reset();});
+
+/* countdown to end of day */
+function tick(){
+  const now=new Date(),end=new Date(now);end.setHours(23,59,59,999);
+  let s=Math.floor((end-now)/1000);
+  const h=String(Math.floor(s/3600)).padStart(2,'0');s%=3600;
+  const m=String(Math.floor(s/60)).padStart(2,'0');const ss=String(s%60).padStart(2,'0');
+  document.getElementById('cd').textContent=`${h}:${m}:${ss}`;
+}
+tick();setInterval(tick,1000);
+
+/* delivery ETA (today + 5 days) */
+(function(){const d=new Date();d.setDate(d.getDate()+5);
+  document.getElementById('eta').textContent='get it by '+d.toLocaleDateString('en-IN',{weekday:'short',day:'numeric',month:'short'});})();
+
+/* faq */
+const faqs=[
+ ["How do I pick the right size?","Every product has a size guide with bust, waist and length in inches. Our fits are relaxed — if you're between sizes, size up for a breezier feel."],
+ ["When will my order arrive?","Metro cities usually get orders in 3–5 days; rest of India in 5–7. You'll get a tracking link by SMS and email the moment it ships."],
+ ["What's your return policy?","Easy 7-day returns and exchanges on unworn pieces with tags. Start a return from your order page — pickup is free."],
+ ["Is Cash on Delivery available?","Yes, COD is available pan-India on orders up to ₹5,000, alongside UPI, cards and net banking."],
+ ["How should I care for my kurti?","Gentle cold machine wash, wash dark shades separately for the first few washes, and line dry in shade to keep colours rich."]
+];
+document.getElementById('faqList').innerHTML=faqs.map(([q,a])=>`<div class="qa"><button><span>${q}</span><span class="ic">+</span></button><div class="a"><p>${a}</p></div></div>`).join('');
+document.getElementById('faqList').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const qa=b.parentElement,a=qa.querySelector('.a');
+  const open=qa.classList.contains('open');
+  document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight='0'});
+  if(!open){qa.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+});
+
+/* back to top */
+const toTop=document.getElementById('toTop');
+addEventListener('scroll',()=>{toTop.classList.toggle('show',scrollY>700)});
+toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+render();upd();
+</script>
 </body>
 </html>
