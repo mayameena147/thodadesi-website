@@ -1,463 +1,251 @@
 <!DOCTYPE html>
 <html lang="en-IN">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preload" as="image" href="images/hero-kurti.jpg">
-<link rel="preload" as="image" href="images/farsi-salwar.jpg">
-<title>Thoda Desi — Roots, Remixed</title>
-<meta name="description" content="Thoda Desi makes playful, Gen Z ethnic wear with Indian roots and a fresh point of view.">
-<meta name="theme-color" content="#f2eadb">
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@layer theme, base, components, utilities;
+  <title>Thoda Desi — Roots, Remixed</title>
+  <meta name="description" content="Thoda Desi makes playful, Gen Z ethnic wear with Indian roots and a fresh point of view.">
+  <meta name="theme-color" content="#f2eadb">
 
-@layer properties {
-  @supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))) {
-    *, ::before, ::after, ::backdrop { --tw-rotate-x: initial; --tw-rotate-y: initial; --tw-rotate-z: initial; --tw-skew-x: initial; --tw-skew-y: initial; --tw-border-style: solid; --tw-font-weight: initial; --tw-blur: initial; --tw-brightness: initial; --tw-contrast: initial; --tw-grayscale: initial; --tw-hue-rotate: initial; --tw-invert: initial; --tw-opacity: initial; --tw-saturate: initial; --tw-sepia: initial; --tw-drop-shadow: initial; --tw-drop-shadow-color: initial; --tw-drop-shadow-alpha: 100%; --tw-drop-shadow-size: initial; }
-  }
-}
+  <!-- Above-the-fold imagery -->
+  <link rel="preload" as="image" href="images/hero-kurti.jpg">
+  <link rel="preload" as="image" href="images/farsi-salwar.jpg">
 
-@layer theme {
-  :root, :host { --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; --color-blue-600: oklch(54.6% .245 262.881); --color-gray-600: oklch(44.6% .03 256.802); --spacing: .25rem; --text-2xl: 1.5rem; --text-2xl--line-height: calc(2 / 1.5); --text-3xl: 1.875rem; --text-3xl--line-height: 1.2; --font-weight-bold: 700; --radius-lg: .5rem; --radius-2xl: 1rem; --default-font-family: var(--font-sans); --default-mono-font-family: var(--font-mono); }
-}
+  <!-- Typefaces: Bodoni Moda (display) + Manrope (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700;800&display=swap">
 
-@layer base {
-  *, ::after, ::before, ::backdrop { box-sizing: border-box; border: 0px solid; margin: 0px; padding: 0px; }
-  ::file-selector-button { box-sizing: border-box; border: 0px solid; margin: 0px; padding: 0px; }
-  html, :host { text-size-adjust: 100%; tab-size: 4; line-height: 1.5; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
-  hr { height: 0px; color: inherit; border-top-width: 1px; }
-  abbr:where([title]) { text-decoration: underline dotted; }
-  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
-  a { color: inherit; text-decoration: inherit; }
-  b, strong { font-weight: bolder; }
-  code, kbd, samp, pre { font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace); font-feature-settings: var(--default-mono-font-feature-settings, normal); font-variation-settings: var(--default-mono-font-variation-settings, normal); font-size: 1em; }
-  small { font-size: 80%; }
-  sub, sup { vertical-align: baseline; font-size: 75%; line-height: 0; position: relative; }
-  sub { bottom: -0.25em; }
-  sup { top: -0.5em; }
-  table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
-  progress { vertical-align: baseline; }
-  summary { display: list-item; }
-  ol, ul, menu { list-style: none; }
-  img, svg, video, canvas, audio, iframe, embed, object { vertical-align: middle; display: block; }
-  img, video { max-width: 100%; height: auto; }
-  button, input, select, optgroup, textarea { font: inherit; letter-spacing: inherit; color: inherit; opacity: 1; background-color: rgba(0, 0, 0, 0); border-radius: 0px; }
-  ::file-selector-button { font: inherit; letter-spacing: inherit; color: inherit; opacity: 1; background-color: rgba(0, 0, 0, 0); border-radius: 0px; }
-  :where(select:is([multiple], [size])) optgroup { font-weight: bolder; }
-  :where(select:is([multiple], [size])) optgroup option { padding-inline-start: 20px; }
-  ::file-selector-button { margin-inline-end: 4px; }
-  ::placeholder { opacity: 1; }
-  @supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px) {
-    ::placeholder { color: currentcolor; }
-    @supports (color:color-mix(in lab,red,red)) { ::placeholder { color: color-mix(currentcolor, transparent); } }
-  }
-  textarea { resize: vertical; }
-  ::-webkit-search-decoration { appearance: none; }
-  ::-webkit-date-and-time-value { min-height: 1lh; text-align: inherit; }
-  ::-webkit-datetime-edit { display: inline-flex; }
-  ::-webkit-datetime-edit-fields-wrapper { padding: 0px; }
-  ::-webkit-datetime-edit { padding-block: 0px; }
-  ::-webkit-datetime-edit-year-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-month-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-day-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-hour-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-minute-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-second-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-millisecond-field { padding-block: 0px; }
-  ::-webkit-datetime-edit-meridiem-field { padding-block: 0px; }
-  ::-webkit-calendar-picker-indicator { line-height: 1; }
-  button, input:where([type="button"], [type="reset"], [type="submit"]) { appearance: button; }
-  ::file-selector-button { appearance: button; }
-  ::-webkit-inner-spin-button { height: auto; }
-  ::-webkit-outer-spin-button { height: auto; }
-  [hidden]:where(:not([hidden="until-found"])) { display: none !important; }
-}
-
-/* ---------- tokens ---------- */
-:root { --ink: #211d18; --paper: #f2eadb; --cream: #fff9ee; --chilli: #dc3d24; --lime: #c9ed44; --pink: #f0a8bb; --line: #211d183d; }
-
-/* ---------- base ---------- */
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { color: var(--ink); background: var(--paper); -webkit-font-smoothing: antialiased; margin: 0px; font-family: Manrope, sans-serif; }
-button, input { font: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
-a { color: inherit; text-decoration: none; }
-button { color: inherit; }
-main { overflow: hidden; }
-
-/* ---------- announcement ---------- */
-.announcement { height: 32px; color: var(--paper); background: var(--ink); letter-spacing: 0.14em; text-transform: uppercase; font-size: 11px; font-weight: 700; overflow: hidden; }
-.marquee-track { align-items: center; gap: 5rem; width: max-content; height: 100%; animation: 22s linear 0s infinite normal none running marquee; display: flex; }
-@keyframes marquee { 100% { transform: translate(-44%); } }
-
-/* ---------- nav ---------- */
-.nav-shell { z-index: 20; border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); background: rgba(242, 234, 219, 0.9); grid-template-columns: 1fr auto 1fr; align-items: center; height: 84px; padding: 0px clamp(1.25rem, 4vw, 4.5rem); display: grid; position: relative; }
-.wordmark { letter-spacing: -0.08em; width: max-content; font-family: "Bodoni Moda", serif; font-size: clamp(1.65rem, 2.4vw, 2.4rem); font-weight: 700; line-height: 1; }
-.wordmark span { color: var(--chilli); font-style: italic; }
-.desktop-nav { gap: clamp(1.5rem, 3vw, 3rem); display: flex; }
-.desktop-nav a { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.76rem; font-weight: 700; }
-.desktop-nav a::after { content: ""; background: var(--chilli); width: 0px; height: 2px; margin-top: 4px; transition: width 0.25s; display: block; }
-.desktop-nav a:hover::after { width: 100%; }
-.nav-actions { justify-content: flex-end; gap: 0.5rem; display: flex; }
-.icon-button { border: 1px solid var(--ink); cursor: pointer; background: 0px 0px; place-items: center; width: 43px; height: 43px; transition: transform 0.2s, background 0.2s; display: grid; }
-.icon-button:hover { background: var(--lime); transform: rotate(-3deg); }
-.bag-button { position: relative; }
-.bag-button span { color: rgb(255, 255, 255); background: var(--chilli); border-radius: 50%; place-items: center; width: 20px; height: 20px; font-size: 10px; font-weight: 800; display: grid; position: absolute; top: -7px; right: -7px; }
-.menu-button { display: none; }
-.mobile-menu { z-index: 30; border: 1px solid var(--ink); background: var(--cream); min-width: 220px; box-shadow: 8px 8px 0 var(--ink); display: grid; position: absolute; top: 100px; right: 1rem; }
-.mobile-menu a { border-bottom: 1px solid var(--line); padding: 1rem 1.25rem; font-weight: 700; }
-
-/* ---------- hero ---------- */
-.hero { border-bottom: 1px solid var(--ink); grid-template-columns: 1.05fr 0.95fr; min-height: calc(-116px + 100vh); display: grid; position: relative; }
-.hero-copy { z-index: 2; background-image: radial-gradient(rgba(33, 29, 24, 0.12) 0.7px, rgba(0, 0, 0, 0) 0.7px); background-size: 9px 9px; flex-direction: column; justify-content: center; padding: clamp(4rem, 8vw, 8rem) clamp(1.25rem, 5.5vw, 6.5rem); display: flex; position: relative; }
-.kicker { letter-spacing: 0.12em; text-transform: uppercase; align-items: center; gap: 0.5rem; margin: 0px 0px 1.5rem; font-size: 0.72rem; font-weight: 800; display: flex; }
-.hero h1, .section-heading h2, .manifesto h2, .club h2 { letter-spacing: -0.065em; margin: 0px; font-family: "Bodoni Moda", serif; font-weight: 600; line-height: 0.88; }
-.hero h1 { max-width: 760px; font-size: clamp(4.8rem, 9.3vw, 10rem); animation: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s 1 normal both running rise; }
-.hero h1 em, .section-heading h2 em { color: var(--chilli); font-weight: 500; }
-@keyframes rise { 0% { opacity: 0; transform: translateY(35px); } }
-.hero-intro { max-width: 540px; margin: 2.25rem 0px 2.5rem; font-size: clamp(1rem, 1.45vw, 1.3rem); line-height: 1.7; }
-.hero-cta-row { align-items: center; gap: 2rem; display: flex; }
-.hero-cta-row > span { letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.66rem; font-weight: 700; line-height: 1.6; }
-.primary-cta { color: rgb(255, 255, 255); background: var(--ink); letter-spacing: 0.08em; text-transform: uppercase; min-height: 56px; box-shadow: 6px 6px 0 var(--chilli); justify-content: center; align-items: center; gap: 0.75rem; padding: 0px 1.5rem; font-size: 0.78rem; font-weight: 800; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; }
-.primary-cta:hover { box-shadow: 3px 3px 0 var(--chilli); transform: translate(3px, 3px); }
-.hero-visual { background: var(--pink); min-height: 650px; padding: clamp(1rem, 3vw, 2.5rem); position: relative; }
-.hero-photo-wrap { clip-path: polygon(8% 0px, 100% 0px, 100% 95%, 0px 100%, 0px 5%); width: 88%; height: 100%; margin-left: auto; overflow: hidden; }
-.hero-photo-wrap img { object-fit: cover; object-position: 50% 35%; filter: saturate(0.82) contrast(1.05); width: 100%; height: 100%; transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.hero-visual:hover img { transform: scale(1.025); }
-.scribble-note { color: var(--chilli); background: var(--lime); box-shadow: 4px 4px 0 var(--ink); padding: 0.8rem 1rem; font-family: "Bodoni Moda", serif; font-size: clamp(1.2rem, 2vw, 2rem); font-style: italic; font-weight: 700; line-height: 0.9; position: absolute; top: 14%; left: -6%; transform: rotate(-9deg); }
-.hero-sticker { color: var(--paper); background: var(--chilli); text-transform: uppercase; border-radius: 50%; align-items: center; gap: 0.35rem; padding: 0.7rem 1rem; font-size: 0.7rem; font-weight: 800; display: flex; position: absolute; bottom: 5%; right: 6%; transform: rotate(7deg); }
-.vertical-copy { letter-spacing: 0.16em; writing-mode: vertical-rl; font-size: 0.58rem; font-weight: 800; position: absolute; bottom: 4%; left: 1rem; transform: rotate(180deg); }
-
-/* ---------- culture strip ---------- */
-.culture-strip { min-height: 78px; color: var(--paper); background: var(--chilli); justify-content: center; align-items: center; gap: clamp(1.5rem, 5vw, 5rem); padding: 1rem; font-family: "Bodoni Moda", serif; font-size: clamp(1.1rem, 2vw, 1.8rem); font-style: italic; display: flex; transform: rotate(-0.6deg) scale(1.01); }
-.culture-strip p { white-space: nowrap; margin: 0px; }
-
-/* ---------- drop ---------- */
-.drop-section { padding: clamp(6rem, 10vw, 10rem) clamp(1.25rem, 5.5vw, 6.5rem); }
-.section-heading { grid-template-columns: 1.2fr 0.55fr; align-items: end; gap: 3rem; margin-bottom: clamp(4rem, 8vw, 8rem); display: grid; }
-.section-heading h2 { font-size: clamp(4rem, 8vw, 8rem); }
-.section-description { max-width: 420px; margin: 0px 0px 0.7rem; font-size: 1rem; line-height: 1.75; }
-.product-grid { grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(2rem, 7vw, 8rem); display: grid; }
-.product-card-2 { margin-top: 12rem; }
-.product-image { background: rgb(221, 209, 192); height: min(62vw, 780px); position: relative; overflow: hidden; }
-.product-card-1 .product-image { clip-path: polygon(0px 0px, 94% 3%, 100% 100%, 4% 96%); }
-.product-card-2 .product-image { clip-path: polygon(5% 0px, 100% 5%, 95% 97%, 0px 100%); }
-.product-image img { object-fit: cover; object-position: center top; width: 100%; height: 100%; transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.7s; }
-.product-card:hover .product-image img { filter: saturate(1.08); transform: scale(1.035); }
-.heart-button { border: 1px solid var(--ink); background: var(--cream); cursor: pointer; border-radius: 50%; place-items: center; width: 46px; height: 46px; transition: color 0.2s, transform 0.2s; display: grid; position: absolute; top: 1.5rem; right: 1.5rem; }
-.heart-button:hover { color: var(--chilli); transform: scale(1.08); }
-.product-color { background: var(--lime); letter-spacing: 0.1em; text-transform: uppercase; padding: 0.55rem 0.8rem; font-size: 0.64rem; font-weight: 800; position: absolute; bottom: 1.5rem; left: 1.5rem; }
-.product-info { padding: 2rem 0.25rem 0px; }
-.product-info > p:first-child { color: var(--chilli); letter-spacing: 0.14em; margin: 0px 0px 0.7rem; font-size: 0.65rem; font-weight: 800; }
-.product-info h3 { letter-spacing: -0.05em; max-width: 560px; margin: 0px; font-family: "Bodoni Moda", serif; font-size: clamp(2.1rem, 4vw, 4rem); line-height: 1; }
-.product-description { max-width: 520px; margin: 1.2rem 0px 1.7rem; line-height: 1.7; }
-.product-buy-row { border-top: 1px solid var(--line); justify-content: space-between; align-items: center; gap: 1rem; padding-top: 1.1rem; display: flex; }
-.product-buy-row strong { font-size: 1.2rem; }
-.product-buy-row button { color: var(--paper); background: var(--ink); letter-spacing: 0.07em; text-transform: uppercase; cursor: pointer; border: 0px; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; font-size: 0.68rem; font-weight: 800; transition: background 0.2s, transform 0.2s; display: flex; }
-.product-buy-row button:hover { background: var(--chilli); transform: translateY(-2px); }
-.product-buy-row button.added { color: var(--ink); background: var(--lime); }
-
-/* ---------- manifesto ---------- */
-.manifesto { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--ink); min-height: 720px; color: var(--paper); grid-template-columns: 0.3fr 1fr; display: grid; }
-.manifesto-label { letter-spacing: 0.18em; writing-mode: vertical-rl; border-right: 1px solid rgba(242, 234, 219, 0.25); justify-content: center; align-items: center; font-size: 0.65rem; font-weight: 800; display: flex; transform: rotate(180deg); }
-.manifesto-copy { flex-direction: column; justify-content: center; padding: clamp(4rem, 9vw, 9rem); display: flex; }
-.manifesto-copy > p { color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; margin: 0px 0px 2rem; font-size: 0.74rem; font-weight: 800; }
-.manifesto h2 { font-size: clamp(4rem, 8.5vw, 9rem); }
-.manifesto h2 span { color: var(--pink); font-style: italic; }
-.manifesto-details { grid-template-columns: 1fr auto; align-items: end; gap: 3rem; margin-top: 3rem; display: grid; }
-.manifesto-details > p { color: rgba(242, 234, 219, 0.72); max-width: 580px; margin: 0px; line-height: 1.8; }
-.stat { align-items: center; gap: 1rem; display: flex; }
-.stat strong { color: var(--chilli); font-family: "Bodoni Moda", serif; font-size: 5rem; line-height: 1; }
-.stat span { letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.6rem; font-weight: 800; line-height: 1.6; }
-
-/* ---------- club ---------- */
-.club { background: var(--lime); grid-template-columns: 1fr 1fr; align-items: center; gap: 5rem; padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 5.5vw, 6.5rem); display: grid; }
-.club h2 { font-size: clamp(3.8rem, 7vw, 7rem); }
-.signup-form label { letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem; font-size: 0.7rem; font-weight: 800; display: block; }
-.email-row { border-bottom: 2px solid var(--ink); grid-template-columns: 1fr 64px; display: grid; }
-.email-row input { background: 0px 0px; border: 0px; outline: 0px; min-width: 0px; padding: 1rem 0px; font-family: "Bodoni Moda", serif; font-size: clamp(1.4rem, 3vw, 2.6rem); }
-.email-row input::placeholder { color: rgba(33, 29, 24, 0.45); }
-.email-row button { color: var(--paper); background: var(--ink); cursor: pointer; border: 0px; place-items: center; transition: background 0.2s; display: grid; }
-.email-row button:hover { background: var(--chilli); }
-.signup-form small { margin-top: 1rem; font-size: 0.67rem; line-height: 1.6; display: block; }
-.success-message { border: 2px solid var(--ink); background: var(--paper); box-shadow: 7px 7px 0 var(--chilli); padding: 2rem; font-family: "Bodoni Moda", serif; font-size: clamp(1.6rem, 3vw, 2.6rem); }
-
-/* ---------- footer ---------- */
-footer { color: var(--paper); background: var(--chilli); grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; padding: 3rem clamp(1.25rem, 5.5vw, 6.5rem) 5.5rem; display: grid; position: relative; }
-.footer-mark span { color: var(--lime); }
-footer > p { font-family: "Bodoni Moda", serif; font-size: 1.1rem; font-style: italic; }
-.footer-links { letter-spacing: 0.08em; text-transform: uppercase; justify-content: flex-end; align-items: center; gap: 1.5rem; font-size: 0.68rem; font-weight: 800; display: flex; }
-.copyright { letter-spacing: 0.14em; white-space: nowrap; margin: 0px; font-family: Manrope, sans-serif; font-size: 0.55rem; font-style: normal; position: absolute; bottom: 1.5rem; left: 50%; transform: translate(-50%); }
-
-/* ---------- responsive ---------- */
-@media (max-width: 900px) {
-  .nav-shell { grid-template-columns: 1fr auto; }
-  .desktop-nav { display: none; }
-  .menu-button { display: grid; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-copy { min-height: 650px; }
-  .hero-visual { min-height: 720px; }
-  .hero-photo-wrap { width: 90%; }
-  .section-heading { grid-template-columns: 1fr; }
-  .product-grid { gap: 2rem; }
-  .product-card-2 { margin-top: 7rem; }
-  .manifesto { grid-template-columns: 72px 1fr; }
-  .manifesto-details, .club { grid-template-columns: 1fr; }
-  footer { grid-template-columns: 1fr 1fr; }
-  footer > p { display: none; }
-}
-
-@media (max-width: 640px) {
-  .announcement { height: 28px; }
-  .nav-shell { height: 70px; padding: 0px 1rem; }
-  .bag-button { display: none; }
-  .hero { min-height: auto; }
-  .hero-copy { min-height: 610px; padding: 5rem 1.25rem 4rem; }
-  .hero h1 { font-size: clamp(4rem, 20vw, 6.5rem); }
-  .hero-intro { font-size: 0.95rem; }
-  .hero-cta-row { flex-direction: column; align-items: flex-start; }
-  .hero-visual { min-height: 600px; padding: 1rem; }
-  .hero-photo-wrap { width: 95%; }
-  .scribble-note { top: 8%; left: 1%; }
-  .culture-strip { justify-content: flex-start; gap: 1.5rem; overflow: hidden; }
-  .culture-strip p:nth-of-type(3), .culture-strip span:nth-of-type(2) { display: none; }
-  .drop-section { padding-top: 6rem; }
-  .product-grid { grid-template-columns: 1fr; }
-  .product-card-2 { margin-top: 4rem; }
-  .product-image { height: 125vw; max-height: 680px; }
-  .manifesto { grid-template-columns: 42px 1fr; min-height: 700px; }
-  .manifesto-copy { padding: 4.5rem 1.4rem; }
-  .manifesto h2 { font-size: clamp(3.4rem, 16vw, 5.5rem); }
-  .manifesto-details { gap: 2rem; }
-  .club { gap: 3rem; }
-  .club h2 { font-size: 3.8rem; }
-  footer { grid-template-columns: 1fr; align-items: start; }
-  .footer-links { justify-content: flex-start; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-}
-</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 <main>
 
-<!-- ============ announcement ============ -->
-<div class="announcement">
-  <div class="marquee-track">
-    <span>New drop: Thoda Extra &#10022;</span>
-    <span>Free shipping over &#8377;2,999 &#10022;</span>
-    <span>Made slow, styled loud &#10022;</span>
-    <span aria-hidden="true">New drop: Thoda Extra &#10022;</span>
-    <span aria-hidden="true">Free shipping over &#8377;2,999 &#10022;</span>
-  </div>
-</div>
-
-<!-- ============ nav ============ -->
-<nav class="nav-shell" aria-label="Main navigation">
-  <a class="wordmark" href="#top" aria-label="Thoda Desi home">thoda <span>desi.</span></a>
-  <div class="desktop-nav">
-    <a href="#drop">The drop</a><a href="#about">Our scene</a><a href="#club">Desi club</a>
-  </div>
-  <div class="nav-actions">
-    <button class="icon-button bag-button" aria-label="0 items in bag"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"></path><path d="M3.103 6.034h17.794"></path><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"></path></svg><span>0</span></button>
-    <button class="icon-button menu-button" aria-label="Menu" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button>
-  </div>
-</nav>
-
-<!-- ============ hero ============ -->
-<section class="hero" id="top">
-  <div class="hero-copy">
-    <p class="kicker"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> Indian fits, no sanskaar lecture</p>
-    <h1>Desi, but<br><em>on our terms.</em></h1>
-    <p class="hero-intro">Easy ethnic fits for the generation mixing jhumkas with headphones and kurtis with whatever feels right.</p>
-    <div class="hero-cta-row">
-      <a class="primary-cta" href="#drop">Shop the drop <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg></a>
-      <span>Limited pieces<br>Made in India</span>
+  <!-- =====================================================================
+       Announcement bar — the track is duplicated so the marquee loops
+       seamlessly; the copies are hidden from assistive tech.
+       ===================================================================== -->
+  <div class="announcement">
+    <div class="marquee-track">
+      <span>New drop: Thoda Extra &#10022;</span>
+      <span>Free shipping over &#8377;2,999 &#10022;</span>
+      <span>Made slow, styled loud &#10022;</span>
+      <span aria-hidden="true">New drop: Thoda Extra &#10022;</span>
+      <span aria-hidden="true">Free shipping over &#8377;2,999 &#10022;</span>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-photo-wrap"><img src="images/hero-kurti.jpg" alt="Model styling a pink Indian suit with bold sunglasses"></div>
-    <div class="scribble-note">not your<br>shaadi fit!</div>
-    <div class="hero-sticker"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg> 100% mood</div>
-    <div class="vertical-copy">THODA EXTRA / NEVER TOO MUCH</div>
-  </div>
-</section>
 
-<!-- ============ culture strip ============ -->
-<section class="culture-strip" aria-label="Brand values">
-  <p>Roots, remixed.</p><span>&#10022;</span><p>Comfort, always.</p><span>&#10022;</span><p>Compliments, incoming.</p>
-</section>
 
-<!-- ============ drop ============ -->
-<section class="drop-section" id="drop">
-  <header class="section-heading">
-    <div>
-      <p class="kicker">Drop 001 / Thoda Extra</p>
-      <h2>Fits with<br><em>full volume.</em></h2>
+  <!-- =====================================================================
+       Navigation
+       ===================================================================== -->
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="wordmark" href="#top" aria-label="Thoda Desi home">thoda <span>desi.</span></a>
+
+    <div class="desktop-nav">
+      <a href="#drop">The drop</a>
+      <a href="#about">Our scene</a>
+      <a href="#club">Desi club</a>
     </div>
-    <p class="section-description">Classic silhouettes meet now-energy. Wear them to brunch, a gig, nani&apos;s house&#8212;or all three.</p>
-  </header>
-  <div class="product-grid">
-    <article class="product-card product-card-1">
-      <div class="product-image">
-        <img src="images/hero-kurti.jpg" alt="Gulabo After Dark ethnic fashion look">
-        <button class="heart-button" aria-label="Save Gulabo After Dark"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></button>
-        <span class="product-color">Rose milk</span>
+
+    <div class="nav-actions">
+      <button class="icon-button bag-button" aria-label="0 items in bag">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-bag" aria-hidden="true"><path d="M16 10a4 4 0 0 1-8 0"/><path d="M3.103 6.034h17.794"/><path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z"/></svg>
+        <span>0</span>
+      </button>
+
+      <button class="icon-button menu-button" aria-label="Menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- =====================================================================
+       Hero
+       ===================================================================== -->
+  <section class="hero" id="top">
+    <div class="hero-copy">
+      <p class="kicker">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg>
+        Indian fits, no sanskaar lecture
+      </p>
+
+      <h1>Desi, but<br><em>on our terms.</em></h1>
+
+      <p class="hero-intro">Easy ethnic fits for the generation mixing jhumkas with headphones and kurtis with whatever feels right.</p>
+
+      <div class="hero-cta-row">
+        <a class="primary-cta" href="#drop">
+          Shop the drop
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right" aria-hidden="true"><path d="m7 7 10 10"/><path d="M17 7v10H7"/></svg>
+        </a>
+        <span>Limited pieces<br>Made in India</span>
       </div>
-      <div class="product-info">
-        <p>01 / SHORT KURTI</p>
-        <h3>Gulabo After Dark</h3>
-        <p class="product-description">A cropped kurti mood with dramatic cuffs, soft cotton and just enough main-character energy.</p>
-        <div class="product-buy-row">
-          <strong>&#8377;2,490</strong>
-          <button class="">Add to bag<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></button>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-photo-wrap">
+        <img src="images/hero-kurti.jpg" alt="Model styling a pink Indian suit with bold sunglasses">
+      </div>
+
+      <div class="scribble-note">not your<br>shaadi fit!</div>
+
+      <div class="hero-sticker">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star" aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        100% mood
+      </div>
+
+      <div class="vertical-copy">THODA EXTRA / NEVER TOO MUCH</div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       Culture strip
+       ===================================================================== -->
+  <section class="culture-strip" aria-label="Brand values">
+    <p>Roots, remixed.</p>
+    <span>&#10022;</span>
+    <p>Comfort, always.</p>
+    <span>&#10022;</span>
+    <p>Compliments, incoming.</p>
+  </section>
+
+
+  <!-- =====================================================================
+       Drop — product grid
+       ===================================================================== -->
+  <section class="drop-section" id="drop">
+    <header class="section-heading">
+      <div>
+        <p class="kicker">Drop 001 / Thoda Extra</p>
+        <h2>Fits with<br><em>full volume.</em></h2>
+      </div>
+      <p class="section-description">Classic silhouettes meet now-energy. Wear them to brunch, a gig, nani&apos;s house&#8212;or all three.</p>
+    </header>
+
+    <div class="product-grid">
+
+      <article class="product-card product-card-1">
+        <div class="product-image">
+          <img src="images/hero-kurti.jpg" alt="Gulabo After Dark ethnic fashion look">
+          <button class="heart-button" aria-label="Save Gulabo After Dark">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+          </button>
+          <span class="product-color">Rose milk</span>
+        </div>
+
+        <div class="product-info">
+          <p>01 / SHORT KURTI</p>
+          <h3>Gulabo After Dark</h3>
+          <p class="product-description">A cropped kurti mood with dramatic cuffs, soft cotton and just enough main-character energy.</p>
+          <div class="product-buy-row">
+            <strong>&#8377;2,490</strong>
+            <button type="button">
+              Add to bag
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card product-card-2">
+        <div class="product-image">
+          <img src="images/farsi-salwar.jpg" alt="Mehfil, But Make It Chill ethnic fashion look">
+          <button class="heart-button" aria-label="Save Mehfil, But Make It Chill">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+          </button>
+          <span class="product-color">Pista dust</span>
+        </div>
+
+        <div class="product-info">
+          <p>02 / FARSI SALWAR</p>
+          <h3>Mehfil, But Make It Chill</h3>
+          <p class="product-description">An easy, fluid suit story inspired by the volume of a Farsi salwar&#8212;made for movement, not posing.</p>
+          <div class="product-buy-row">
+            <strong>&#8377;4,290</strong>
+            <button type="button">
+              Add to bag
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       Manifesto
+       ===================================================================== -->
+  <section class="manifesto" id="about">
+    <div class="manifesto-label">OUR SCENE / हमारी वाली VIBE</div>
+
+    <div class="manifesto-copy">
+      <p>Tradition isn&apos;t a dress code.</p>
+      <h2>We keep the craft.<br>We lose the <span>rules.</span></h2>
+
+      <div class="manifesto-details">
+        <p>Thoda Desi is for every plan that starts casual and becomes a full scene. Small-batch pieces, familiar details, zero costume energy.</p>
+        <div class="stat">
+          <strong>24</strong>
+          <span>hands touch every<br>finished piece</span>
         </div>
       </div>
-    </article>
-    <article class="product-card product-card-2">
-      <div class="product-image">
-        <img src="images/farsi-salwar.jpg" alt="Mehfil, But Make It Chill ethnic fashion look">
-        <button class="heart-button" aria-label="Save Mehfil, But Make It Chill"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart" aria-hidden="true"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"></path></svg></button>
-        <span class="product-color">Pista dust</span>
-      </div>
-      <div class="product-info">
-        <p>02 / FARSI SALWAR</p>
-        <h3>Mehfil, But Make It Chill</h3>
-        <p class="product-description">An easy, fluid suit story inspired by the volume of a Farsi salwar&#8212;made for movement, not posing.</p>
-        <div class="product-buy-row">
-          <strong>&#8377;4,290</strong>
-          <button class="">Add to bag<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></button>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ manifesto ============ -->
-<section class="manifesto" id="about">
-  <div class="manifesto-label">OUR SCENE / हमारी वाली VIBE</div>
-  <div class="manifesto-copy">
-    <p>Tradition isn&apos;t a dress code.</p>
-    <h2>We keep the craft.<br>We lose the <span>rules.</span></h2>
-    <div class="manifesto-details">
-      <p>Thoda Desi is for every plan that starts casual and becomes a full scene. Small-batch pieces, familiar details, zero costume energy.</p>
-      <div class="stat"><strong>24</strong><span>hands touch every<br>finished piece</span></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============ club ============ -->
-<section class="club" id="club">
-  <div class="club-copy">
-    <p class="kicker">The Thoda Desi Club</p>
-    <h2>Get the gossip<br>before the drop.</h2>
-  </div>
-  <form class="signup-form">
-    <label for="email">Your email, bestie</label>
-    <div class="email-row">
-      <input id="email" type="email" required placeholder="naam@email.com" value="">
-      <button type="submit" aria-label="Join the Thoda Desi Club"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></button>
+
+  <!-- =====================================================================
+       Club — newsletter signup
+       ===================================================================== -->
+  <section class="club" id="club">
+    <div class="club-copy">
+      <p class="kicker">The Thoda Desi Club</p>
+      <h2>Get the gossip<br>before the drop.</h2>
     </div>
-    <small>No spam. Only drops, styling inspo and occasional shaadi excuses.</small>
-  </form>
-</section>
 
-<!-- ============ footer ============ -->
-<footer>
-  <a class="wordmark footer-mark" href="#top">thoda <span>desi.</span></a>
-  <p>Wear your roots. Add your own plot twist.</p>
-  <div class="footer-links">
-    <a href="#top">Shipping</a>
-    <a href="#top">Sizing</a>
-    <a href="#top" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
-  </div>
-  <p class="copyright">&copy; 2026 THODA DESI / MADE WITH FEELINGS</p>
-</footer>
+    <form class="signup-form">
+      <label for="email">Your email, bestie</label>
+      <div class="email-row">
+        <input id="email" type="email" placeholder="naam@email.com" required>
+        <button type="submit" aria-label="Join the Thoda Desi Club">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </button>
+      </div>
+      <small>No spam. Only drops, styling inspo and occasional shaadi excuses.</small>
+    </form>
+  </section>
+
+
+  <!-- =====================================================================
+       Footer
+       ===================================================================== -->
+  <footer>
+    <a class="wordmark footer-mark" href="#top">thoda <span>desi.</span></a>
+
+    <p>Wear your roots. Add your own plot twist.</p>
+
+    <div class="footer-links">
+      <a href="#top">Shipping</a>
+      <a href="#top">Sizing</a>
+      <a href="#top" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+    </div>
+
+    <p class="copyright">&copy; 2026 THODA DESI / MADE WITH FEELINGS</p>
+  </footer>
 
 </main>
 
-<script>
-// Thoda Desi — interactions (vanilla replacement for the React bundle)
-(function () {
-  "use strict";
-
-  var ARROW_UP_RIGHT =
-    '<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>';
-
-  /* ---------- bag ---------- */
-  var bagButton = document.querySelector(".bag-button");
-  var bagCount = bagButton.querySelector("span");
-  var bag = [];
-
-  function renderBag() {
-    bagCount.textContent = String(bag.length);
-    bagButton.setAttribute("aria-label", bag.length + " items in bag");
-  }
-
-  Array.prototype.forEach.call(
-    document.querySelectorAll(".product-buy-row button"),
-    function (button, index) {
-      button.addEventListener("click", function () {
-        var at = bag.indexOf(index);
-        if (at === -1) {
-          bag.push(index);
-          button.className = "added";
-          button.innerHTML = "In the bag" + ARROW_UP_RIGHT;
-        } else {
-          bag.splice(at, 1);
-          button.className = "";
-          button.innerHTML = "Add to bag" + ARROW_UP_RIGHT;
-        }
-        renderBag();
-      });
-    }
-  );
-
-  renderBag();
-
-  /* ---------- mobile menu ---------- */
-  var navShell = document.querySelector(".nav-shell");
-  var menuButton = document.querySelector(".menu-button");
-  var menu = null;
-
-  function closeMenu() {
-    if (!menu) return;
-    menu.parentNode.removeChild(menu);
-    menu = null;
-    menuButton.setAttribute("aria-expanded", "false");
-  }
-
-  function openMenu() {
-    menu = document.createElement("div");
-    menu.className = "mobile-menu";
-    menu.innerHTML =
-      '<a href="#drop">The drop</a><a href="#about">Our scene</a><a href="#club">Desi club</a>';
-    Array.prototype.forEach.call(menu.querySelectorAll("a"), function (a) {
-      a.addEventListener("click", closeMenu);
-    });
-    navShell.parentNode.insertBefore(menu, navShell.nextSibling);
-    menuButton.setAttribute("aria-expanded", "true");
-  }
-
-  menuButton.addEventListener("click", function () {
-    if (menu) closeMenu();
-    else openMenu();
-  });
-
-  /* ---------- newsletter ---------- */
-  var form = document.querySelector(".signup-form");
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    form.innerHTML =
-      '<p class="success-message">You&rsquo;re in. Front-row energy unlocked &#10022;</p>';
-  });
-})();
-</script>
+<script src="script.js"></script>
 </body>
+
 </html>
