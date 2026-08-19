@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thoda Desi | Gen Z Ethnic Wear</title>
+  <style>
+    :root {
+      --bg: #fff8f2;
+      --text: #2d1a16;
+      --accent: #ff5a5f;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(960px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      margin-top: 0.75rem;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.25rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .cta {
+      text-align: center;
+      margin: 2rem 0 3rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h1>thoda desi</h1>
+    <p class="tagline">Gen Z ethnic fits with a modern vibe.</p>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>What We Sell</h2>
+      <div class="products">
+        <article class="card">
+          <h3>Short Kurti</h3>
+          <p>Trendy short kurtis designed for everyday style and comfort.</p>
+        </article>
+        <article class="card">
+          <h3>Farsi Salwar Suit</h3>
+          <p>Elegant farsi salwar suits for statement looks with desi roots.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p>Drop in and discover your next desi look.</p>
+      <a class="btn" href="#">Shop Thoda Desi</a>
+    </section>
+  </main>
+</body>
+</html>
