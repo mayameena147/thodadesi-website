@@ -9,7 +9,12 @@
   <meta name="description" content="Thoda Desi makes playful, Gen Z ethnic wear with Indian roots and a fresh point of view.">
   <meta name="theme-color" content="#f2eadb">
 
+  <!-- Brand mark -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+
   <!-- Above-the-fold imagery -->
+  <link rel="preload" as="image" href="images/logo.jpg">
   <link rel="preload" as="image" href="images/hero-kurti.jpg">
   <link rel="preload" as="image" href="images/farsi-salwar.jpg">
 
@@ -44,7 +49,9 @@
        Navigation
        ===================================================================== -->
   <nav class="nav-shell" aria-label="Main navigation">
-    <a class="wordmark" href="#top" aria-label="Thoda Desi home">thoda <span>desi.</span></a>
+    <a class="brand" href="#top" aria-label="Thoda Desi home">
+      <img src="images/logo.jpg" alt="Thoda Desi" width="1440" height="565">
+    </a>
 
     <div class="desktop-nav">
       <a href="#drop">The drop</a>

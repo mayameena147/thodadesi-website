@@ -177,6 +177,30 @@ button {
   backdrop-filter: blur(12px);
 }
 
+/* Hand-lettered brand mark. The artwork carries its own deep-red plate, so it
+   sits in the nav as a raised badge rather than free-floating type. */
+.brand {
+  display: block;
+  width: max-content;
+  line-height: 0;
+}
+
+.brand img {
+  display: block;
+  height: clamp(38px, 5.2vw, 52px);
+  width: auto;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
 .wordmark {
   width: max-content;
   font-family: "Bodoni Moda", serif;
