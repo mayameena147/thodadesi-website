@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /account.html
+Disallow: /checkout.html
+Disallow: /thank-you.html
+Disallow: /auth-callback.html
+Disallow: /api/

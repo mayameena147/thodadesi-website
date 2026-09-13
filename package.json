@@ -1,0 +1,19 @@
+{
+  "name": "thodadesi-website",
+  "version": "2.0.0",
+  "description": "Thoda Desi — ethnic clothing brand storefront",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "netlify dev",
+    "check": "node --check js/checkout.js && node --check js/home.js && node --check js/admin.js",
+    "test": "node --test \"tests/*.test.mjs\""
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

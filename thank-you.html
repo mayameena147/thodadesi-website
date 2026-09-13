@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Thank you — Thoda Desi</title>
+  <meta name="description" content="Your Thoda Desi order is confirmed.">
+  <meta name="theme-color" content="#f2eadb">
+  <meta name="robots" content="noindex">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<main>
+
+  <nav class="nav-shell" aria-label="Main navigation">
+    <a class="brand" href="index.html" aria-label="Thoda Desi home">
+      <img src="images/logo.jpg" alt="Thoda Desi" width="1440" height="565">
+    </a>
+  </nav>
+
+  <section class="confirmation">
+    <p class="kicker">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+      <span id="confirm-kicker">Order confirmed</span>
+    </p>
+
+    <h1>Thank you<br><em>for your order.</em></h1>
+
+    <p class="confirmation-ref">
+      Order <strong id="order-number">&mdash;</strong>
+    </p>
+
+    <!-- Filled from the order the shopper just placed; hidden otherwise. -->
+    <div class="confirmation-detail" id="confirmation-detail" hidden>
+      <ul class="confirmation-lines" id="confirmation-lines"></ul>
+      <dl class="confirmation-totals">
+        <div><dt>Subtotal</dt><dd id="confirm-subtotal"></dd></div>
+        <div><dt>Shipping</dt><dd id="confirm-shipping"></dd></div>
+        <div class="confirmation-grand"><dt>Total</dt><dd id="confirm-total"></dd></div>
+        <div><dt>Payment</dt><dd id="confirm-method"></dd></div>
+      </dl>
+    </div>
+
+    <p class="confirmation-copy" id="confirmation-copy">
+      We pack Monday to Friday and most orders leave within two working
+      days &mdash; see <a href="policies/shipping.html">shipping</a> for the
+      details.
+    </p>
+
+    <a class="primary-cta" href="index.html#drop">
+      Continue shopping
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+    </a>
+  </section>
+
+  <footer>
+    <a class="wordmark footer-mark" href="index.html">thoda <span>desi.</span></a>
+
+    <div class="footer-links">
+      <a href="policies/shipping.html">Shipping</a>
+      <a href="policies/returns.html">Returns</a>
+      <a href="policies/privacy.html">Privacy</a>
+      <a href="policies/terms.html">Terms</a>
+    </div>
+
+    <p class="copyright">&copy; 2026 THODA DESI / MADE WITH FEELINGS</p>
+  </footer>
+
+</main>
+
+<script>
+  /**
+   * Display only — the order itself was confirmed server-side before this
+   * page was reached. The order number comes from the URL; the line items
+   * come from sessionStorage, written by checkout.js just before redirect.
+   */
+  (function () {
+    'use strict';
+
+    function text(id, value) {
+      document.getElementById(id).textContent = value;
+    }
+
+    function inr(paise) {
+      return '₹' + Math.round(paise / 100).toLocaleString('en-IN');
+    }
+
+    var order = new URLSearchParams(window.location.search).get('order');
+
+    if (order && /^TD\d{4,10}$/.test(order)) {
+      text('order-number', order);
+    } else {
+      document.querySelector('.confirmation-ref').hidden = true;
+    }
+
+    var saved = null;
+
+    try {
+      saved = JSON.parse(window.sessionStorage.getItem('thodadesi.lastOrder'));
+    } catch (error) { /* fine — show the simple version */ }
+
+    if (!saved || saved.orderNumber !== order || !Array.isArray(saved.lines)) return;
+
+    var list = document.getElementById('confirmation-lines');
+
+    saved.lines.forEach(function (line) {
+      var item = document.createElement('li');
+      var name = document.createElement('span');
+      var price = document.createElement('span');
+
+      name.textContent = line.name + ' — ' + line.size + ' × ' + line.qty;
+      price.textContent = inr(line.linePricePaise);
+
+      item.append(name, price);
+      list.append(item);
+    });
+
+    text('confirm-subtotal', inr(saved.subtotalPaise));
+    text('confirm-shipping', saved.shippingPaise === 0 ? 'Free' : inr(saved.shippingPaise));
+    text('confirm-total', inr(saved.totalPaise));
+
+    if (saved.paymentMethod === 'cod') {
+      text('confirm-method', 'Cash on delivery');
+      text('confirm-kicker', 'Order placed — pay on delivery');
+      document.getElementById('confirmation-copy').insertAdjacentText(
+        'afterbegin',
+        'Keep ' + inr(saved.totalPaise) + ' ready when your order arrives. '
+      );
+    } else {
+      text('confirm-method', 'Paid online');
+    }
+
+    document.getElementById('confirmation-detail').hidden = false;
+  })();
+</script>
+</body>
+
+</html>

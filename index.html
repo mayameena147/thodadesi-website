@@ -240,8 +240,8 @@
     <p>Wear your roots. Add your own plot twist.</p>
 
     <div class="footer-links">
-      <a href="#top">Shipping</a>
-      <a href="#top">Sizing</a>
+      <a href="policies/shipping.html">Shipping</a>
+      <a href="policies/returns.html">Returns</a>
       <a href="#top" aria-label="Instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
       </a>
@@ -252,7 +252,43 @@
 
 </main>
 
-<script src="script.js"></script>
+<script type="module" src="js/home.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Gulabo After Dark",
+      "description": "A cropped kurti mood with dramatic cuffs, soft cotton and just enough main-character energy.",
+      "image": "images/hero-kurti.jpg",
+      "sku": "TD-KUR-001",
+      "brand": { "@type": "Brand", "name": "Thoda Desi" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "2490",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "name": "Mehfil, But Make It Chill",
+      "description": "An easy, fluid suit story inspired by the volume of a Farsi salwar—made for movement, not posing.",
+      "image": "images/farsi-salwar.jpg",
+      "sku": "TD-SAL-002",
+      "brand": { "@type": "Brand", "name": "Thoda Desi" },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "4290",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  ]
+}
+</script>
 </body>
 
 </html>

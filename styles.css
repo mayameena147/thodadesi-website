@@ -978,3 +978,1117 @@ footer > p {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* ==========================================================================
+   14. Shop — size picker & stock
+   ========================================================================== */
+
+.grid-error,
+.muted {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.size-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.size-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.size-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.size-chip {
+  position: relative;
+  min-width: 38px;
+  height: 34px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--ink);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.size-chip:hover:not(:disabled) {
+  background: var(--lime);
+  transform: rotate(-2deg);
+}
+
+.size-chip.selected {
+  color: var(--paper);
+  background: var(--ink);
+  box-shadow: 3px 3px 0 var(--chilli);
+}
+
+.size-chip.gone {
+  border-color: var(--line);
+  color: var(--ink);
+  opacity: 0.35;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+/* "Only 2 left" whisper on hover/focus */
+.size-chip[data-low]:hover::after,
+.size-chip[data-low]:focus-visible::after {
+  content: attr(data-low);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+  background: var(--ink);
+  z-index: 5;
+}
+
+.soldout-flag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  box-shadow: 3px 3px 0 var(--chilli);
+}
+
+.add-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ==========================================================================
+   15. Bag drawer
+   ========================================================================== */
+
+body.drawer-open {
+  overflow: hidden;
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: #211d18a8;
+  opacity: 0;
+  transition: opacity 0.24s;
+  z-index: 40;
+}
+
+.drawer-overlay.visible {
+  opacity: 1;
+}
+
+.drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-left: 1px solid var(--ink);
+  transform: translateX(100%);
+  transition: transform 0.24s ease-out;
+  z-index: 41;
+}
+
+.drawer-panel.visible {
+  transform: translateX(0);
+}
+
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.drawer-head h2 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.4rem;
+}
+
+.drawer-empty {
+  display: grid;
+  gap: 1.2rem;
+  justify-items: start;
+  padding-top: 2rem;
+}
+
+.drawer-lines {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.drawer-line {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 0.9rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.drawer-line img {
+  width: 64px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+}
+
+.drawer-line-body h3 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.drawer-line-meta {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-top: 0.6rem;
+  border: 1px solid var(--ink);
+}
+
+.qty-stepper button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.qty-stepper button:hover:not(:disabled) {
+  background: var(--lime);
+}
+
+.qty-stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.qty-stepper output {
+  min-width: 26px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.drawer-line-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.drawer-remove {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.15s, color 0.15s;
+}
+
+.drawer-remove:hover {
+  opacity: 1;
+  color: var(--chilli);
+}
+
+.drawer-nudge {
+  margin-top: 1rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--lime);
+  border: 1px solid var(--ink);
+}
+
+.drawer-totals {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--ink);
+}
+
+.drawer-totals div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.drawer-totals dd {
+  font-weight: 700;
+}
+
+.drawer-grand {
+  padding-top: 0.5rem;
+  font-size: 1rem !important;
+}
+
+.drawer-grand dt,
+.drawer-grand dd {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.drawer-checkout {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.drawer-fineprint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+  font-size: 0.7rem;
+  opacity: 0.65;
+}
+
+
+/* ==========================================================================
+   16. Checkout
+   ========================================================================== */
+
+.checkout {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 3rem 1.4rem 5rem;
+}
+
+.checkout-head {
+  margin-bottom: 2rem;
+}
+
+.checkout-head h1 {
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 600;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.checkout-summary {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1.6rem;
+  background: var(--cream);
+  border: 1px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--pink);
+}
+
+.checkout-summary h2 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.summary-lines {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.summary-lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-name {
+  display: grid;
+  font-weight: 700;
+}
+
+.summary-name small {
+  font-weight: 500;
+  opacity: 0.65;
+}
+
+.summary-totals {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1.1rem;
+}
+
+.summary-totals div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.summary-grand dt,
+.summary-grand dd {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.summary-edit {
+  margin-top: 1.2rem;
+  font-size: 0.8rem;
+}
+
+.summary-edit a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.summary-empty {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.summary-empty h2 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.checkout-form fieldset {
+  min-inline-size: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem;
+  margin-bottom: 1.6rem;
+}
+
+.checkout-form legend {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.field .optional {
+  opacity: 0.5;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.field input,
+.field select {
+  height: 48px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  font-size: 0.95rem;
+}
+
+.field input:focus-visible,
+.field select:focus-visible {
+  outline: 2px solid var(--chilli);
+  outline-offset: 1px;
+}
+
+.field small {
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+.field-pair,
+.field-trio {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.field-pair {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.field-trio {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(0, 0.8fr);
+}
+
+/* Payment method picker */
+
+.payment-methods {
+  gap: 0.7rem !important;
+}
+
+.method-option {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.method-option:has(input:checked) {
+  box-shadow: 4px 4px 0 var(--chilli);
+  transform: translate(-1px, -1px);
+}
+
+.method-option input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--chilli);
+}
+
+.method-body {
+  display: grid;
+}
+
+.method-body strong {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.method-body small {
+  font-size: 0.75rem;
+  opacity: 0.65;
+}
+
+.checkout-status {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--ink);
+}
+
+.checkout-status.error {
+  background: #f6c8bd;
+}
+
+.checkout-status.notice {
+  background: var(--lime);
+}
+
+.pay-button {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+}
+
+.pay-button.busy {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.checkout-terms {
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+.checkout-terms a {
+  color: inherit;
+}
+
+
+/* ==========================================================================
+   17. Order confirmation
+   ========================================================================== */
+
+.confirmation {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 4rem 1.4rem 5rem;
+  display: grid;
+  gap: 1.3rem;
+  justify-items: start;
+}
+
+.confirmation h1 {
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2.4rem, 7vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.confirmation h1 em {
+  color: var(--chilli);
+  font-style: italic;
+}
+
+.confirmation-ref {
+  font-size: 1rem;
+}
+
+.confirmation-ref strong {
+  padding: 0.25rem 0.6rem;
+  font-weight: 800;
+  background: var(--lime);
+  border: 1px solid var(--ink);
+}
+
+.confirmation-detail {
+  width: 100%;
+  padding: 1.3rem;
+  background: var(--cream);
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--pink);
+}
+
+.confirmation-lines {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.confirmation-lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.confirmation-totals {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.confirmation-totals div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.confirmation-grand dt,
+.confirmation-grand dd {
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.confirmation-copy {
+  font-size: 0.92rem;
+  opacity: 0.8;
+}
+
+.confirmation-copy a {
+  color: inherit;
+}
+
+
+/* ==========================================================================
+   18. Policy pages
+   ========================================================================== */
+
+.policy {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.4rem 5rem;
+}
+
+.policy-head h1 {
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 600;
+}
+
+.policy-updated {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.policy-body {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.policy-body h2 {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.policy-body p,
+.policy-body li {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.policy-body ul {
+  display: grid;
+  gap: 0.4rem;
+  padding-left: 1.1rem;
+  list-style: disc;
+}
+
+
+/* ==========================================================================
+   19. Admin dashboard
+   ========================================================================== */
+
+.admin-loading,
+.admin-signin,
+.admin-denied,
+.admin-panel {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 2.5rem 1.4rem 5rem;
+}
+
+.signin-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem;
+  max-width: 380px;
+  margin-top: 1.5rem;
+}
+
+.signout-button {
+  height: 43px;
+  padding: 0 1.1rem;
+  border: 1px solid var(--ink);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.signout-button:hover {
+  background: var(--lime);
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.admin-stats div {
+  display: grid;
+  padding: 1rem 1.2rem;
+  background: var(--cream);
+  border: 1px solid var(--ink);
+}
+
+.admin-stats strong {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.admin-stats span {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.admin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.admin-tabs {
+  display: inline-flex;
+  border: 1px solid var(--ink);
+}
+
+.admin-tabs button {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+}
+
+.admin-tabs button.selected {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.admin-search input {
+  height: 43px;
+  width: min(320px, 100%);
+  padding: 0 0.9rem;
+  border: 1px solid var(--ink);
+  background: var(--cream);
+  font-size: 0.88rem;
+}
+
+.admin-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.4rem;
+}
+
+.admin-filters button {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--ink);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  background: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.admin-filters button:hover {
+  background: var(--lime);
+}
+
+.admin-filters button.selected {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.admin-orders {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.admin-order {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.4rem;
+  padding: 1.3rem;
+  background: var(--cream);
+  border: 1px solid var(--ink);
+}
+
+.admin-order-main header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.admin-order-main header > strong {
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.admin-badge {
+  padding: 0.18rem 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.admin-confirmed { background: var(--lime); }
+.admin-packed    { background: var(--pink); }
+.admin-shipped   { background: var(--pink); }
+.admin-delivered { background: var(--lime); }
+.admin-cancelled,
+.admin-returned  { opacity: 0.55; }
+
+.pay-paid   { background: var(--lime); }
+.pay-cod    { background: var(--pink); }
+.pay-failed,
+.admin-alert { color: var(--paper); background: var(--chilli); }
+
+.admin-when {
+  margin-left: auto;
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+.admin-items {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.admin-size {
+  padding: 0.05rem 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  border: 1px solid var(--ink);
+}
+
+.admin-address {
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.admin-address a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.admin-order-form {
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+  padding-left: 1.4rem;
+  border-left: 1px solid var(--line);
+}
+
+.admin-amount {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.admin-order-form label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.admin-order-form label > span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.admin-order-form input,
+.admin-order-form select {
+  height: 40px;
+  padding: 0 0.7rem;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.85rem;
+}
+
+.admin-cod-collect {
+  display: flex !important;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: 0.5rem !important;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.admin-cod-collect input {
+  width: 16px;
+  height: 16px !important;
+  accent-color: var(--chilli);
+}
+
+.admin-order-form button,
+.admin-stock-row button {
+  height: 42px;
+  border: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.admin-order-form button:hover,
+.admin-stock-row button:hover {
+  background: var(--chilli);
+}
+
+.admin-order-status {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.admin-order-status.ok  { color: #2c7a2c; }
+.admin-order-status.bad { color: var(--chilli); }
+
+/* Inventory */
+
+.admin-inventory {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 1.2rem;
+}
+
+.admin-stock-row {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.2rem;
+  background: var(--cream);
+  border: 1px solid var(--ink);
+}
+
+.admin-stock-row header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+
+.admin-stock-row header strong {
+  font-family: "Bodoni Moda", serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.stock-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.stock-cell {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: center;
+}
+
+.stock-cell span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stock-cell input {
+  width: 68px;
+  height: 42px;
+  text-align: center;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.admin-stock-row button {
+  justify-self: start;
+  padding: 0 1.2rem;
+}
+
+
+/* ==========================================================================
+   20. Responsive — shop pages
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-summary {
+    position: static;
+  }
+
+  .admin-order {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-order-form {
+    padding-left: 0;
+    padding-top: 1.1rem;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .admin-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .field-pair,
+  .field-trio {
+    grid-template-columns: 1fr;
+  }
+
+  .drawer-panel {
+    width: 100vw;
+    border-left: 0;
+  }
+}
+
+
+/* ==========================================================================
+   21. Motion preferences — shop pages
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .drawer-panel,
+  .drawer-overlay,
+  .method-option,
+  .size-chip {
+    transition: none;
+  }
+}

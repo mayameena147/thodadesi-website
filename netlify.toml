@@ -1,0 +1,48 @@
+# Thoda Desi — Netlify configuration
+
+[build]
+  publish  = "."
+  functions = "netlify/functions"
+  command  = ""
+
+[functions]
+  # esbuild bundles the shared module (js/lib/pricing.js) into each
+  # function, so the pricing code the server charges with is the same
+  # file the browser previews with.
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Friendlier URLs for the functions.
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/:splat"
+  status = 200
+  force  = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options        = "SAMEORIGIN"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), microphone=(), camera=()"
+
+# Never let a stale fallback catalogue price a live cart.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# The admin page must never be cached by intermediaries.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag  = "noindex, nofollow"
+
+# A Content-Security-Policy is deliberately NOT set here. Razorpay Checkout
+# loads scripts, iframes and beacons across several razorpay.com hosts, and a
+# CSP that is even slightly wrong breaks payments silently. Add one only after
+# testing a full payment end to end with it in Report-Only mode first.

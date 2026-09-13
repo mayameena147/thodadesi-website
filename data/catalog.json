@@ -1,0 +1,47 @@
+{
+  "_comment": "Offline/fallback catalogue only. The live site loads /api/catalog, which is built from Supabase and carries real stock and prices. Keep this file's copy in sync when products change so the site still renders if the API is briefly down. stock:null = unknown here; the server always re-checks.",
+  "currency": "INR",
+  "freeShippingThresholdPaise": 299900,
+  "shippingFlatPaise": 9900,
+  "codEnabled": true,
+  "products": [
+    {
+      "sku": "TD-KUR-001",
+      "slug": "gulabo-after-dark",
+      "number": "01",
+      "category": "SHORT KURTI",
+      "name": "Gulabo After Dark",
+      "colour": "Rose milk",
+      "pricePaise": 249000,
+      "description": "A cropped kurti mood with dramatic cuffs, soft cotton and just enough main-character energy.",
+      "image": "images/hero-kurti.jpg",
+      "alt": "Gulabo After Dark ethnic fashion look",
+      "sizes": [
+        { "size": "XS", "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "S",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "M",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "L",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "XL", "variantId": null, "pricePaise": null, "stock": null }
+      ]
+    },
+    {
+      "sku": "TD-SAL-002",
+      "slug": "mehfil-but-make-it-chill",
+      "number": "02",
+      "category": "FARSI SALWAR",
+      "name": "Mehfil, But Make It Chill",
+      "colour": "Pista dust",
+      "pricePaise": 429000,
+      "description": "An easy, fluid suit story inspired by the volume of a Farsi salwar—made for movement, not posing.",
+      "image": "images/farsi-salwar.jpg",
+      "alt": "Mehfil, But Make It Chill ethnic fashion look",
+      "sizes": [
+        { "size": "XS", "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "S",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "M",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "L",  "variantId": null, "pricePaise": null, "stock": null },
+        { "size": "XL", "variantId": null, "pricePaise": null, "stock": null }
+      ]
+    }
+  ]
+}

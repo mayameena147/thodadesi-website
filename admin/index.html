@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Admin — Thoda Desi</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#f2eadb">
+
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700;800&display=swap">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="admin-page">
+<main>
+
+  <nav class="nav-shell" aria-label="Admin navigation">
+    <a class="brand" href="../index.html" aria-label="Thoda Desi home">
+      <img src="../images/logo.jpg" alt="Thoda Desi" width="1440" height="565">
+    </a>
+
+    <div class="nav-actions">
+      <button class="signout-button" hidden>Sign out</button>
+    </div>
+  </nav>
+
+  <!-- State 1: checking the session -->
+  <section class="admin-loading">
+    <p class="muted">Loading&hellip;</p>
+  </section>
+
+  <!-- State 2: sign in -->
+  <section class="admin-signin" hidden>
+    <header class="section-heading">
+      <div>
+        <p class="kicker">Back office</p>
+        <h2>Sign in</h2>
+      </div>
+    </header>
+
+    <form class="signin-form">
+      <div class="field">
+        <label for="admin-email">Email</label>
+        <input id="admin-email" name="email" type="email" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="admin-password">Password</label>
+        <input id="admin-password" name="password" type="password"
+               autocomplete="current-password" required>
+      </div>
+      <p class="checkout-status signin-status" hidden role="status"></p>
+      <button type="submit" class="primary-cta">Sign in</button>
+    </form>
+  </section>
+
+  <!-- State 3: signed in, but no admin role -->
+  <section class="admin-denied" hidden>
+    <header class="section-heading">
+      <div>
+        <p class="kicker">Back office</p>
+        <h2>No access</h2>
+      </div>
+    </header>
+    <p class="admin-denied-copy muted">
+      This account does not have admin access.
+    </p>
+  </section>
+
+  <!-- State 4: the dashboard -->
+  <section class="admin-panel" hidden>
+    <header class="section-heading">
+      <div>
+        <p class="kicker">Back office</p>
+        <h2>Orders</h2>
+      </div>
+    </header>
+
+    <div class="admin-stats" aria-live="polite"></div>
+
+    <div class="admin-toolbar">
+      <div class="admin-tabs" role="tablist">
+        <button type="button" data-tab="orders" class="selected">Orders</button>
+        <button type="button" data-tab="inventory">Inventory</button>
+      </div>
+
+      <div class="admin-search">
+        <input type="search" placeholder="Search name / phone / order no." aria-label="Search orders">
+      </div>
+    </div>
+
+    <div class="admin-view-orders">
+      <div class="admin-filters">
+        <button type="button" data-filter="open" class="selected">Open</button>
+        <button type="button" data-filter="all">All</button>
+        <button type="button" data-filter="pending">Pending</button>
+        <button type="button" data-filter="confirmed">Confirmed</button>
+        <button type="button" data-filter="packed">Packed</button>
+        <button type="button" data-filter="shipped">Shipped</button>
+        <button type="button" data-filter="delivered">Delivered</button>
+        <button type="button" data-filter="cancelled">Cancelled</button>
+      </div>
+
+      <div class="admin-orders"></div>
+    </div>
+
+    <div class="admin-view-inventory" hidden>
+      <p class="muted">Stock by product and size. Edit a number and save the row.</p>
+      <div class="admin-inventory"></div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module" src="../js/admin.js"></script>
+</body>
+
+</html>
